@@ -2,10 +2,34 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { MenuComponent } from './menu/menu/menu.component';
+import { InfoTripulanteComponent } from './menu/info-tripulante/info-tripulante.component';
+import { InfoTripulacionComponent } from './menu/info-tripulacion/info-tripulacion.component';
+import { InfoNaveComponent } from './menu/info-nave/info-nave.component';
+import { InfoEstrellaComponent } from './estrellas/info-estrella/info-estrella.component';
+import { NavegacionEstrellasComponent } from './estrellas/navegacion-estrellas/navegacion-estrellas.component';
+import { NavegacionPlanetasComponent } from './planetas/navegacion-planetas/navegacion-planetas.component';
+import { VistaPlanetaComponent } from './planetas/vista-planeta/vista-planeta.component';
+import { ListaProductosCompraComponent } from './planetas/lista-productos-compra/lista-productos-compra.component';
+import { ListaProductosVentaComponent } from './planetas/lista-productos-venta/lista-productos-venta.component';
+import { TransaccionCompraComponent } from './comercio/transaccion-compra/transaccion-compra.component';
+import { TransaccionVentaComponent } from './comercio/transaccion-venta/transaccion-venta.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MenuComponent,
+    InfoTripulanteComponent,
+    InfoTripulacionComponent,
+    InfoNaveComponent,
+    InfoEstrellaComponent,
+    NavegacionEstrellasComponent,
+    NavegacionPlanetasComponent,
+    VistaPlanetaComponent,
+    ListaProductosCompraComponent,
+    ListaProductosVentaComponent,
+    TransaccionCompraComponent,
+    TransaccionVentaComponent
   ],
   imports: [
     BrowserModule
