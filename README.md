@@ -1,3 +1,25 @@
+# Organización Components
+
+- menu
+  - menu
+  - info-tripulante (subcomponentes)
+  - info-tripulacion (subcomponentes)
+  - info-nave (subcomponentes)
+
+- estrellas
+  - navegacion-estrellas
+  - info-estrella (subcomponente)
+
+- planetas
+  - navegacion-planetas
+  - vista-planeta
+  - lista-productos-compra (subcomponente)
+  - lista-productos-venta (subcomponente)
+
+- comercio
+  - transaccion-compra
+  - transaccion-venta
+
 # Zathura
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.7.
