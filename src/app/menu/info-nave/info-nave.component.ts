@@ -11,5 +11,7 @@ export class InfoNaveComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  title = "Datos nave";
+  creditosNave ="5222";
+  tiempoNave = 5986;
 }

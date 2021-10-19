@@ -1,3 +1,51 @@
-.container {
+/* .container {
     min-height: 100vh;
+} */
+
+body {
+    background-image: url("https://plataformaism.institutostoppani.mx/pluginfile.php/73/course/overviewfiles/unives.gif");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.holdingcontainer {
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+    padding: 60px 210px 200px 200px;
+    box-sizing: border-box;
+    flex-direction: row;
+}
+
+.internalcontainerL {
+    flex: 1;
+    padding: 30px;
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+    margin: 3px;
+}
+
+.internalcontainerM {
+    flex: 1;
+    padding: 30px;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    margin: 3px;
+    text-align: center;
+}
+
+.internalcontainerR {
+    flex: 1;
+    padding: 30px;
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+    margin: 3px;
+}
+
+@media screen and (max-width: 768px) {
+    .holdingcontainer {
+        flex-direction: column-reverse;
+    }
 }

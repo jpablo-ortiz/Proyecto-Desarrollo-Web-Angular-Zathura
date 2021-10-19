@@ -11,5 +11,6 @@ export class InfoTripulanteComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  jug: string = "Nombre del Jugador";
+  rolJug ="Rol Comerciante";
 }

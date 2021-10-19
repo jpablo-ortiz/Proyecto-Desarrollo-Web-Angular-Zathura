@@ -11,5 +11,7 @@ export class InfoTripulacionComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  trip:string = "Tripulación Rayo";
+  jug2: string = "Jugador 2";
+  jug3: string = "Jugador 3";
 }

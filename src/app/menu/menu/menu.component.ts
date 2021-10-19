@@ -11,5 +11,10 @@ export class MenuComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  //viajarAEstrellas(){
+    //llamar metodo para la pantalla de Estrellas
 
+  //}
+  // nombre nave
+  nave: string = "Rayo MAQUEN";
 }

@@ -1,29 +1,38 @@
+<!DOCTYPE html>
 <html>
-<main>
-    <div class="container d-flex flex-row p-4 justify-content-between align-items-center">
-        <div class="d-flex">
-            <app-info-nave></app-info-nave>
-        </div>
 
-        <div class="d-flex text-justify">
-            MITAD
-        </div>
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale = 1">
 
-        <div class="d-flex text-justify">
+</head>
 
-            <div class="d-flex flex-column">
-                <div class="d-flex">
-                    <app-info-tripulante></app-info-tripulante>
-                </div>
-                <div class="d-flex">
-                    <app-info-tripulacion></app-info-tripulacion>
-                </div>
+<body>
+    <div class="container">
+        <h1 style="text-align: center; color:aliceblue ;">Menú zathura</h1>
+        <div class="holdingcontainer">
+
+            <div class="internalcontainerL" style="color: aliceblue;">
+                <app-info-nave></app-info-nave>
             </div>
 
+            <div class="internalcontainerM " style="color: aliceblue;">
+                <h1>{{nave}}</h1>
+                <img class="dasimages" src="https://img.freepik.com/vector-gratis/nave-espacial-volando-traves-asteroides_1308-33891.jpg?size=626&ext=jpg" width="100%" style="margin-top: 15px;" />
+                <button type="button" class="btn btn-primary" style="margin-top: 100px;" [routerLink]="['/estrella'] ">Jugar</button>
+
+
+            </div>
+            <div class="internalcontainerR" style="color: aliceblue;">
+                <app-info-tripulacion></app-info-tripulacion>
+
+                <div class="container">
+                    <app-info-tripulante></app-info-tripulante>
+                </div>
+            </div>
         </div>
     </div>
 
 
-</main>
+</body>
 
 </html>
