@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -14,7 +15,6 @@ import { ListaProductosCompraComponent } from './planetas/lista-productos-compra
 import { ListaProductosVentaComponent } from './planetas/lista-productos-venta/lista-productos-venta.component';
 import { NavegacionPlanetasComponent } from './planetas/navegacion-planetas/navegacion-planetas.component';
 import { VistaPlanetaComponent } from './planetas/vista-planeta/vista-planeta.component';
-
 
 @NgModule({
   declarations: [
@@ -34,7 +34,8 @@ import { VistaPlanetaComponent } from './planetas/vista-planeta/vista-planeta.co
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
