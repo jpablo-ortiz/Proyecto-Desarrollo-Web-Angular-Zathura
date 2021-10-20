@@ -1,9 +1,11 @@
 <div style="font-size: 20px;">
     <h3>Tripulación</h3>
     <div *ngFor="let tripulante of tripulantes" >
+      <div class="p-2"></div>
         <div class="form-group">
             <label for="nombre">Jugador </label>
             <input type="text" class="form-control" id="nombre" placeholder="Nombre" [(ngModel)]="tripulante.username" disabled>
         </div>
+
     </div>
 </div>

@@ -1,11 +1,6 @@
 
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Fira Sans', sans-serif;
-}
 html {
+    height: 100%;
     background-image: url("https://i.gifer.com/YcsK.gif");
 
     -webkit-background-size: contain;
@@ -17,22 +12,17 @@ html {
     background-size: 100% 100%;
 }
 .grid {
-  display: block;
-  padding: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  box-align: initial;
 }
-.grid .col {
-  background-color: pink;
-  margin-bottom: 16px;
-  padding: 16px;
+.container{
+  margin-bottom: 15px;
 }
 
-@media (min-widht: 768px) {
-  .grid {
-    display: grid;
-    grid-gap: 16px;
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
+
+
 
 
 

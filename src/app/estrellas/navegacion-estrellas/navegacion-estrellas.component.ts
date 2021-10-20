@@ -21,4 +21,9 @@ export class NavegacionEstrellasComponent implements OnInit {
     );
   }
 
+  public actualizarEstrella(id: number) {
+
+
+  }
+
 }

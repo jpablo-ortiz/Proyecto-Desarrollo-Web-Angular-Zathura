@@ -1,25 +1,28 @@
 <html>
 
-    <h1 style="text-align: center; color:aliceblue;">Menú Zathura</h1>
-    <div class="holdingcontainer">
+<h1 style="text-align: center; color:aliceblue;">Menú Zathura</h1>
+<div class="holdingcontainer full-height">
 
-        <div class="internalcontainerL" style="color: aliceblue;">
-            <app-info-nave [creditosNave]="actual.nave?.cantidadCredito" [tiempoNave]="actual.nave?.totalTiempoViaje">
-            </app-info-nave>
-        </div>
+  <div class="internalcontainerL" style="color: aliceblue;">
+    <app-info-nave [creditosNave]="actual.nave?.cantidadCredito" [tiempoNave]="actual.nave?.totalTiempoViaje">
+    </app-info-nave>
+  </div>
 
-        <div class="internalcontainerM " style="color: aliceblue;">
-            <h1>{{nave}}</h1>
-            <img class="dasimages" src="https://img.freepik.com/vector-gratis/nave-espacial-volando-traves-asteroides_1308-33891.jpg?size=626&ext=jpg" width="100%" style="margin-top: 15px;" />
-            <button type="button" class="btn btn-primary" style="margin-top: 100px;" [routerLink]="['/estrella'] ">Jugar</button>
+  <div class="internalcontainerM" style="color: aliceblue;">
 
+    <img class="dasimages"
+      src="https://img.freepik.com/vector-gratis/nave-espacial-volando-traves-asteroides_1308-33891.jpg?size=626&ext=jpg"
+      width="100%" style="margin-top: 15px;" />
+    <h1 class="h1-top">{{nave}}</h1>
+    <button type="button" class="btn btn-primary" [routerLink]="['/estrella'] ">Jugar</button>
 
-        </div>
-        <div class="internalcontainerR" style="color: aliceblue;">
-            <app-info-tripulante [rolJug]="rolTrip" [jug]="actual.username!"></app-info-tripulante>
-            <div class="p-3"></div>
-            <app-info-tripulacion [tripulanteActualId]="actual.id!" [naveId]="actual.nave!.id!"></app-info-tripulacion>
-        </div>
-    </div>
+  </div>
+  <div class="internalcontainerR" style="color: aliceblue;">
+    <app-info-tripulante [rolJug]="rolTrip" [jug]="actual.username!"></app-info-tripulante>
+    <div class="p-3"></div>
+    <app-info-tripulacion [tripulanteActualId]="actual.id!" [naveId]="actual.nave!.id!"></app-info-tripulacion>
+  </div>
+
+</div>
 
 </html>
