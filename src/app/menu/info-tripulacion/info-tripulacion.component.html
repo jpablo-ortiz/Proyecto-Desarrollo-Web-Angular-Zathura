@@ -1,5 +1,9 @@
-<h1>{{trip}}</h1>
-<div class="container" style="font-size: 20px;">
-    <div>{{jug2}}</div>
-    <div>{{jug3}}</div>
+<div style="font-size: 20px;">
+    <h3>Tripulación</h3>
+    <div *ngFor="let tripulante of tripulantes" >
+        <div class="form-group">
+            <label for="nombre">Jugador </label>
+            <input type="text" class="form-control" id="nombre" placeholder="Nombre" [(ngModel)]="tripulante.username" disabled>
+        </div>
+    </div>
 </div>

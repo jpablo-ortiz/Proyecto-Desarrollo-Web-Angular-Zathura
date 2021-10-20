@@ -40,7 +40,7 @@ export class ModeloNaveService {
 
   public updateModeloNave(modeloNave: ModeloNave) {
     const url = 'modelo-nave';
-    return this.restService.put(url, modeloNave);
+    return this.restService.post(url, modeloNave);
   }
 
   // ------------------------------------------------------------

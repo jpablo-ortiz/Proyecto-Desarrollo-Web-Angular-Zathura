@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-info-tripulante',
@@ -7,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InfoTripulanteComponent implements OnInit {
 
+  @Input() jug: string = "Nombre del Jugador";
+  @Input() rolJug : string = "rol";
+
   constructor() { }
 
   ngOnInit(): void {
+
+
   }
-  jug: string = "Nombre del Jugador";
-  rolJug ="Rol Comerciante";
+
 }

@@ -1,0 +1,39 @@
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Fira Sans', sans-serif;
+}
+html {
+    background-image: url("https://i.gifer.com/YcsK.gif");
+
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: 100% 100%;
+}
+.grid {
+  display: block;
+  padding: 16px;
+}
+.grid .col {
+  background-color: pink;
+  margin-bottom: 16px;
+  padding: 16px;
+}
+
+@media (min-widht: 768px) {
+  .grid {
+    display: grid;
+    grid-gap: 16px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+
+

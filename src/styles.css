@@ -1,14 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 
 html,
-body {
+body, 
+main {
     height: 100%;
 }
+
 
 * {
     margin: 0px;
     padding: 0px;
-    box-sizing: border-box;
 }
 
 .red-border {

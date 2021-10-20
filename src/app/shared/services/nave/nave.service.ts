@@ -41,7 +41,7 @@ export class NaveService {
 
   public updateNave(nave: Nave) {
     const url = environment.baseURL + '/nave/' + nave.id;
-    return this.restService.put(url, nave);
+    return this.restService.post(url, nave);
   }
 
   // ------------------------------------------------------------

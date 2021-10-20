@@ -1,12 +1,13 @@
 <html>
-
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital@0;1&family=Peddana&display=swap" rel="stylesheet">
+<div class="mat-app-background basic-container"></div>
 <main>
     <nav class="navbar navbar-expand-lg navbar-night bg-black transparency-black">
         <div class="container-fluid transparency-black">
             <a class="navbar-brand" [routerLink]="['/menu']">Zathura</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse transparency-black" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-link active" [routerLink]="['/menu']">Menú</a>
@@ -19,10 +20,8 @@
     </nav>
 
 
-    <div>
-        <router-outlet></router-outlet>
-    </div>
+    <router-outlet></router-outlet>
+
 </main>
 
 </html>
-<!-- lo que esta en el li con routerLink, sera la barra de menu, entonces puedes cambiarlo como quieras, pero toca con router-->

@@ -41,7 +41,7 @@ export class EstrellaService {
 
   public updateEstrella(estrella: Estrella) {
     const url = environment.baseURL + '/estrella/' + estrella.id;
-    return this.restService.put(url, estrella);
+    return this.restService.post(url, estrella);
   }
 
   // ------------------------------------------------------------
@@ -51,5 +51,14 @@ export class EstrellaService {
   public deleteEstrella(id: number) {
     const url = environment.baseURL + '/estrella/' + id;
     return this.restService.delete(url);
+  }
+
+  // ------------------------------------------------------------
+  // -------------------------- OTHER ---------------------------
+  // ------------------------------------------------------------
+
+  public get10NearestEstrellas(idEstrella: number) {
+    const url = environment.baseURL + '/estrella/10nearest/' + idEstrella;
+    return this.restService.get<Estrella[]>(url);
   }
 }

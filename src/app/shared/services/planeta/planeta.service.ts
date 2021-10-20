@@ -41,7 +41,7 @@ export class PlanetaService {
 
   public updatePlaneta(planeta: Planeta) {
     const url = environment.baseURL + '/planeta/' + planeta.id;
-    return this.restService.put(url, planeta);
+    return this.restService.post(url, planeta);
   }
 
   // ------------------------------------------------------------

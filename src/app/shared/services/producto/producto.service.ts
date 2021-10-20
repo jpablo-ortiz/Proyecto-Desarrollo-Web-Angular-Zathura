@@ -41,7 +41,7 @@ export class ProductoService {
 
   public updateProducto(producto: Producto) {
     const url = environment.baseURL + '/producto/' + producto.id;
-    return this.restService.put(url, producto);
+    return this.restService.post(url, producto);
   }
 
   // ------------------------------------------------------------

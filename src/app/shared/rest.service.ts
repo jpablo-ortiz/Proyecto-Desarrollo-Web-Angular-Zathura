@@ -29,7 +29,7 @@ export class RestService {
     );
   }
 
-  public post<T>(url: string, data: {}, httpHeader?: {}): Observable<T> {
+  public post<T>(url: string, data: any, httpHeader?: {}): Observable<T> {
     console.log('post', url);
     return this.http.post<T>(url, data, httpHeader).pipe(
       // retry(5),
@@ -37,7 +37,7 @@ export class RestService {
     );
   }
 
-  public put<T>(url: string, data: {}, httpHeader?: {}): Observable<T> {
+  public put<T>(url: string, data: any, httpHeader?: {}): Observable<T> {
     console.log('put', url);
     return this.http.put<T>(url, data, httpHeader).pipe(
       // retry(5),

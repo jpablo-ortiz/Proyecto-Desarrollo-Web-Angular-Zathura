@@ -41,7 +41,7 @@ export class RutaService {
 
   public updateRuta(ruta: Ruta) {
     const url = environment.baseURL + '/ruta/' + ruta.id;
-    return this.restService.put(url, ruta);
+    return this.restService.post(url, ruta);
   }
 
   // ------------------------------------------------------------
