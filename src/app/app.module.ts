@@ -37,7 +37,9 @@ import { VistaPlanetaComponent } from './planetas/vista-planeta/vista-planeta.co
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

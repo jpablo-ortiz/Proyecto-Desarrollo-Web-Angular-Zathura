@@ -10,6 +10,8 @@ import { EstrellaService } from 'src/app/shared/services/estrella/estrella.servi
 export class NavegacionEstrellasComponent implements OnInit {
 
   public estrellas: Estrella[] = [];
+  //Estrella que selecciono el jugador para viajar a x estrella
+  public estrellaViaje:Estrella = new Estrella(); 
 
   constructor(private estrellaService: EstrellaService) { }
 
@@ -22,8 +24,10 @@ export class NavegacionEstrellasComponent implements OnInit {
   }
 
   public actualizarEstrella(id: number) {
-
-
+    this.estrellaViaje.id = id; 
+    this.estrellaService.updateEstrella(this.estrellaViaje).subscribe();
   }
 
+
+  
 }

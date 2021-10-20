@@ -52,5 +52,15 @@ export class PlanetaService {
     const url = environment.baseURL + '/planeta/' + id;
     return this.restService.delete(url);
   }
+  // ------------------------------------------------------------
+  // -------------------------- OTHER ---------------------------
+  // ------------------------------------------------------------
+
+
+  public getPlanetasByEstrella(idEstrella: number){
+    const url = environment.baseURL + '/planeta/estrella/' + idEstrella;
+    return this.restService.get<Planeta[]>(url);
+
+  }
 
 }

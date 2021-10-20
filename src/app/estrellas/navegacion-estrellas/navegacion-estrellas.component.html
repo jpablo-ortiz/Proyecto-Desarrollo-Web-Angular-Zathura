@@ -1,23 +1,25 @@
 <html>
-    <h1 style="text-align: center; color:aliceblue;">Estrellas Cercanas</h1>
-    <body>
-      <div class="container" >
+<h1 style="text-align: center; color:aliceblue;">Estrellas Cercanas</h1>
+
+<body>
+    <div class="container">
         <div *ngFor="let estrella of estrellas" class="wrapper">
-          <div class="card " style="margin-top: 15px;"  >
-            <div class="card-body">
-              <h5 class="card-title"> Nombre {{estrella.nombre}}</h5>
-              <p class="card-text"> ID :{{estrella.id}}</p>
-              <p class="card-text"> Habitado: {{estrella.habitado}}</p>
-              <p class="card-text"> Distancia: {{estrella.distancia}}</p>
-              <p class="card-text"> x: {{estrella.x}}</p>
-              <p class="card-text"> y: {{estrella.y}}</p>
-              <p class="card-text"> z: {{estrella.z}}</p>
-              <a [routerLink]="['/planeta'] " class="btn btn-primary" (click)="actualizarEstrella(estrella.id!)">Viajar</a>
+            <div class="card " style="margin-top: 15px;">
+                <div class="card-body">
+                    <h5 class="card-title"> Nombre {{estrella.nombre}}</h5>
+                    <p class="card-text"> ID :{{estrella.id}}</p>
+                    <p class="card-text"> Habitado: {{estrella.habitado}}</p>
+                    <p class="card-text"> Distancia: {{estrella.distancia}}</p>
+                    <p class="card-text"> x: {{estrella.x}}</p>
+                    <p class="card-text"> y: {{estrella.y}}</p>
+                    <p class="card-text"> z: {{estrella.z}}</p>
+
+                    <a [routerLink]="['/planeta',estrella.id]" class="btn btn-primary" (click)="actualizarEstrella(estrella.id!) ">Viajar</a>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </body>
+    </div>
+</body>
 
 <!--
     <h1 style="text-align: center; color:aliceblue;">Estrellas Cercanas</h1>
@@ -33,6 +35,8 @@
         </div>
       </div>
     </body>
+    <app-navegacion-planetas [valor]="estrellaViaje"></app-navegacion-planetas>
     -->
-</html>
 
+
+</html>

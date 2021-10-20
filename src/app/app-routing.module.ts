@@ -1,3 +1,4 @@
+import { VistaPlanetaComponent } from './planetas/vista-planeta/vista-planeta.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { InfoEstrellaComponent } from './estrellas/info-estrella/info-estrella.component';
@@ -6,7 +7,7 @@ import { MenuComponent } from './menu/menu/menu.component';
 import { NavegacionPlanetasComponent } from './planetas/navegacion-planetas/navegacion-planetas.component';
 
 const routes: Routes = [
-
+  { path: 'planeta/id', component: VistaPlanetaComponent },
   { path: 'planeta', component: NavegacionPlanetasComponent },
   { path: 'estrella', component: NavegacionEstrellasComponent },
   { path: 'estrella/:id', component: InfoEstrellaComponent },
