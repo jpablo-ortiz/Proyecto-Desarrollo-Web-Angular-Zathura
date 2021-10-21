@@ -1,3 +1,4 @@
+import { NaveXProducto } from './../../../models/nave-x-producto/nave-xproducto';
 import { Injectable } from '@angular/core';
 import { Nave } from 'src/app/models/nave/nave';
 import { environment } from 'src/environments/environment';
@@ -7,6 +8,7 @@ import { RestService } from '../../rest.service';
   providedIn: 'root'
 })
 export class NaveService {
+ 
 
   constructor(private restService: RestService) { }
 
@@ -60,6 +62,12 @@ export class NaveService {
   public updatePlanetaDeLaNave(idNave: number, idPlaneta: number) {
     const url = environment.baseURL + '/nave/' + idNave + '/planeta/' + idPlaneta;
     return this.restService.get<Nave>(url);
+  }
+
+
+  public  getNaveXProducto(productoId: number, naveId: number) {
+    const url = environment.baseURL + '/nave/' + naveId + '/prodcto/' + productoId;
+    return this.restService.get<NaveXProducto>(url);
   }
 
 }

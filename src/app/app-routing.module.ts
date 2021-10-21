@@ -9,7 +9,7 @@ import { VistaPlanetaComponent } from './planetas/vista-planeta/vista-planeta.co
 
 const routes: Routes = [
   { path: 'vender', component: TransaccionVentaComponent },
-  { path: 'comprar', component: TransaccionCompraComponent },
+  { path: 'comprar/:idp/:idpr', component: TransaccionCompraComponent },
   { path: 'planeta/:id', component: VistaPlanetaComponent },
   { path: 'planeta/estrella/:id', component: NavegacionPlanetasComponent },
   { path: 'estrella', component: NavegacionEstrellasComponent },
