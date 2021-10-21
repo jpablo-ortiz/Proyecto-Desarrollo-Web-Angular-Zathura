@@ -1,14 +1,17 @@
-import { NaveXProducto } from './../../../models/nave-x-producto/nave-xproducto';
 import { Injectable } from '@angular/core';
 import { Nave } from 'src/app/models/nave/nave';
+import { RespuestaMensaje } from 'src/app/models/pojo/respuesta-mensaje';
 import { environment } from 'src/environments/environment';
 import { RestService } from '../../rest.service';
+import { NaveXProducto } from './../../../models/nave-x-producto/nave-xproducto';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NaveService {
- 
+
+
+
 
   constructor(private restService: RestService) { }
 
@@ -65,9 +68,29 @@ export class NaveService {
   }
 
 
-  public  getNaveXProducto(productoId: number, naveId: number) {
-    const url = environment.baseURL + '/nave/' + naveId + '/prodcto/' + productoId;
+  public  getNaveXProducto(naveId: number, productoId: number) {
+    const url = environment.baseURL + '/nave/' + naveId + '/producto/' + productoId;
     return this.restService.get<NaveXProducto>(url);
   }
+
+  public realizarCompra(idPlaneta: number, idProducto: number, idNave: number, cantidad: number) {
+    const url = environment.baseURL + '/nave/comprar';
+    return this.restService.post<RespuestaMensaje>(url, {
+      idPlaneta: idPlaneta,
+      idProducto: idProducto,
+      idNave: idNave,
+      cantidad: cantidad
+    });
+  }
+
+  public realizarVenta(idPlaneta: number, idProducto: number, idNave: number, cantidad: number) {
+    const url = environment.baseURL + '/nave/vender';
+    return this.restService.post<RespuestaMensaje>(url, {
+      idPlaneta: idPlaneta,
+      idProducto: idProducto,
+      idNave: idNave,
+      cantidad: cantidad
+    });
+}
 
 }

@@ -1,9 +1,9 @@
-import { PlanetaXProducto } from './../../../models/planeta-x-producto/planeta-xproducto';
 import { Injectable } from '@angular/core';
 import { Planeta } from 'src/app/models/planeta/planeta';
 import { Producto } from 'src/app/models/producto/producto';
 import { environment } from 'src/environments/environment';
 import { RestService } from '../../rest.service';
+import { PlanetaXProducto } from './../../../models/planeta-x-producto/planeta-xproducto';
 
 @Injectable({
   providedIn: 'root'
@@ -61,19 +61,18 @@ export class PlanetaService {
   // ------------------------------------------------------------
 
 
-  public getPlanetasByEstrella(idEstrella: number){
+  public getPlanetasByEstrella(idEstrella: number) {
     const url = environment.baseURL + '/planeta/estrella/' + idEstrella;
     return this.restService.get<Planeta[]>(url);
 
   }
-  public  getProductosXPlaneta(planetaId: number) {
+  public getProductosXPlaneta(planetaId: number) {
     const url = environment.baseURL + '/planeta/productos/' + planetaId;
     return this.restService.get<Producto[]>(url);
   }
 
   public getPlanetaXProducto(planetaId: number, productoId: number) {
-   
-    const url = environment.baseURL + '/planeta/'+ planetaId + 'producto/' + productoId;
+    const url = environment.baseURL + '/planeta/' + planetaId + '/producto/' + productoId;
     return this.restService.get<PlanetaXProducto>(url);
   }
 

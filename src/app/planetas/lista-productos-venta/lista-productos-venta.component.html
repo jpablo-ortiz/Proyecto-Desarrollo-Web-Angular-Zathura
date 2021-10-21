@@ -9,11 +9,10 @@
                 <div class="card-body">
                     <h5 class="card-title"> Nombre {{producto.nombre}}</h5>
                     <p class="card-text"> ID :{{producto.id}}</p>
-                    <a [routerLink]="['/vender']" class="btn btn-primary">Vender</a>
+                    <a [routerLink]="['/vender', planetaId, producto.id]" class="btn btn-primary">Vender</a>
                 </div>
             </div>
         </div>
-
     </div>
 </body>
 

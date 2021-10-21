@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Producto } from 'src/app/models/producto/producto';
 import { PlanetaService } from 'src/app/shared/services/planeta/planeta.service';
 
@@ -10,24 +10,24 @@ import { PlanetaService } from 'src/app/shared/services/planeta/planeta.service'
 export class ListaProductosCompraComponent implements OnInit {
 
   @Input() public planetaIdActual: number = 0;
-  public productos : Producto[] =  []; 
+  public productos: Producto[] = [];
 
-constructor(private planetaService: PlanetaService) { }
-
-
-ngOnInit(): void {
-  this.getPlanetasXProducto(this.planetaIdActual)
-}
-
-public getPlanetasXProducto(planetaIdActual: number) {
- this.planetaService.getProductosXPlaneta(planetaIdActual).subscribe( produc => {
-
-  this.productos = produc;
- }
+  constructor(private planetaService: PlanetaService) { }
 
 
- );
+  ngOnInit(): void {
+    this.getPlanetasXProducto(this.planetaIdActual)
+  }
 
-}
+  public getPlanetasXProducto(planetaIdActual: number) {
+    this.planetaService.getProductosXPlaneta(planetaIdActual).subscribe(produc => {
+
+      this.productos = produc;
+    }
+
+
+    );
+
+  }
 
 }
