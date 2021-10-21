@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { Estrella } from 'src/app/models/estrella/estrella';
+import { Nave } from 'src/app/models/nave/nave';
+import { Planeta } from 'src/app/models/planeta/planeta';
 import { Tripulante } from 'src/app/models/tripulante/tripulante';
 import { environment } from 'src/environments/environment';
 import { RestService } from '../../rest.service';
@@ -61,4 +64,32 @@ export class TripulanteService {
     const url = environment.baseURL + '/tripulante/nave/' + idNave;
     return this.restService.get<Tripulante[]>(url);
   }
+
+  public getEstrellaActualTripulante(idTripulanteActual: number) {
+    const url = environment.baseURL + '/tripulante/' + idTripulanteActual + '/estrella';
+    return this.restService.get<Estrella>(url);
+  }
+
+  public getPlanetaActualTripulante(idTripulanteActual: number) {
+    const url = environment.baseURL + '/tripulante/' + idTripulanteActual + '/planeta';
+    return this.restService.get<Planeta>(url);
+  }
+
+  public getNaveActualTripulante(idTripulante: number) {
+    const url = environment.baseURL + '/tripulante/' + idTripulante + '/nave';
+    return this.restService.get<Nave>(url);
+  }
+
+  // ------------------------------------------------------------
+  // ------------------------- OTROS ---------------------------
+  // ------------------------------------------------------------
+
+  public setIdTripulanteLogeado(id: number) {
+    sessionStorage.setItem('idTripulanteActual',  String(id));
+  }
+
+  public getIdTripulanteLogeado(): number {
+    return Number(sessionStorage.getItem('idTripulanteActual'));
+  }
+
 }

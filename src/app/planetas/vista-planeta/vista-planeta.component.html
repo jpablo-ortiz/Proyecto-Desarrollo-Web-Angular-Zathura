@@ -1,1 +1,23 @@
-<p>vista-planeta works!</p>
+<html>
+
+  <div id="content">
+    <div class="holdingcontainer full-height">
+
+      <div class="internalcontainerM" style="color: aliceblue;">
+
+        <h1 style="text-align: center; color:aliceblue;">{{planetaActual.nombre}}</h1>
+        <img src="/assets/images/estrella1.png" alt="image">
+        <button type="button" class="btn btn-primary" [routerLink]="['/estrella'] ">Jugar</button>
+
+      </div>
+
+      <div class="internalcontainerR" style="color: aliceblue;">
+        <app-lista-productos-compra></app-lista-productos-compra>
+        <div class="p-3"></div>
+        <app-lista-productos-venta [planetaId]="idPlaneta"></app-lista-productos-venta>
+      </div>
+
+    </div>
+  </div>
+
+</html>

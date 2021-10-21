@@ -14,16 +14,19 @@ export class MenuComponent implements OnInit {
   public nave?: string = "hola"
   public tripulantes: Tripulante[] = [];
   public rolTrip: string = "hr";
+  public id_tripulante_actual: number = 0;
 
   constructor(private tripulanteService: TripulanteService) { }
 
   public ngOnInit(): void {
+    this.id_tripulante_actual = 144;
+    this.tripulanteService.setIdTripulanteLogeado(this.id_tripulante_actual);
     this.getTripulanteActual();
   }
 
   // Realizar consulta para obtener el tripulante actual
   public getTripulanteActual() {
-    this.tripulanteService.getTripulante(3).subscribe(
+    this.tripulanteService.getTripulante(this.id_tripulante_actual).subscribe(
       tripulante => {
         this.actual = tripulante;
         this.nave = tripulante.nave?.nombre;

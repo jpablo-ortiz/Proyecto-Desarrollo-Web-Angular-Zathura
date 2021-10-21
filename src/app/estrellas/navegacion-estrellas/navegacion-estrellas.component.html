@@ -2,41 +2,19 @@
 <h1 style="text-align: center; color:aliceblue;">Estrellas Cercanas</h1>
 
 <body>
-    <div class="container">
-        <div *ngFor="let estrella of estrellas" class="wrapper">
-            <div class="card " style="margin-top: 15px;">
-                <div class="card-body">
-                    <h5 class="card-title"> Nombre {{estrella.nombre}}</h5>
-                    <p class="card-text"> ID :{{estrella.id}}</p>
-                    <p class="card-text"> Habitado: {{estrella.habitado}}</p>
-                    <p class="card-text"> Distancia: {{estrella.distancia}}</p>
-                    <p class="card-text"> x: {{estrella.x}}</p>
-                    <p class="card-text"> y: {{estrella.y}}</p>
-                    <p class="card-text"> z: {{estrella.z}}</p>
-
-                    <a [routerLink]="['/planeta',estrella.id]" class="btn btn-primary" (click)="actualizarEstrella(estrella.id!) ">Viajar</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
-
-<!--
-    <h1 style="text-align: center; color:aliceblue;">Estrellas Cercanas</h1>
-    <body>
-      <div *ngFor="let estrella of estrellas" class="container">
-        <div class="row align-items-start" style="width: 18rem;">
-          <div class="col">
-            <h5 class="card-title">{{estrella.nombre}}</h5>
-            <p class="card-text">{{estrella.id}}</p>
-            <p class="card-text">{{estrella.distancia}}</p>
-            <a href="#" class="btn btn-primary">seleccionar</a>
-          </div>
+  <div class="container">
+    <div *ngFor="let estrella of estrellas" class="wrapper">
+      <div class="card " style="margin-top: 15px;">
+        <div class="card-body">
+          <h5 class="card-title"> Nombre {{estrella.nombre}}</h5>
+          <p class="card-text"> ID :{{estrella.id}}</p>
+          <p class="card-text"> Habitado: {{estrella.habitado}}</p>
+          <p class="card-text"> Distancia: {{estrella.distancia}}</p>
+          <p class="card-text"> | x: {{estrella.x}} | y: {{estrella.y}} | z: {{estrella.z}} |</p>
+          <a [routerLink]="['/planeta/estrella',estrella.id]" class="btn btn-primary">Viajar</a>
         </div>
       </div>
-    </body>
-    <app-navegacion-planetas [valor]="estrellaViaje"></app-navegacion-planetas>
-    -->
-
-
+    </div>
+  </div>
+</body>
 </html>

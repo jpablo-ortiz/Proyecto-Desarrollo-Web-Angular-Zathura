@@ -12,9 +12,9 @@ export class NaveService {
 
   // CRUD - CREATE - READ - UPDATE - DELETE
 
-	// ------------------------------------------------------------
-	// -------------------------- CREATE --------------------------
-	// ------------------------------------------------------------
+  // ------------------------------------------------------------
+  // -------------------------- CREATE --------------------------
+  // ------------------------------------------------------------
 
   public createNave(nave: Nave) {
     const url = environment.baseURL + '/nave';
@@ -41,7 +41,7 @@ export class NaveService {
 
   public updateNave(nave: Nave) {
     const url = environment.baseURL + '/nave/' + nave.id;
-    return this.restService.post(url, nave);
+    return this.restService.post<Nave>(url, nave);
   }
 
   // ------------------------------------------------------------
@@ -51,6 +51,15 @@ export class NaveService {
   public deleteNave(id: number) {
     const url = environment.baseURL + '/nave/' + id;
     return this.restService.delete(url);
+  }
+
+  // ------------------------------------------------------------
+  // -------------------------- OTHER ---------------------------
+  // ------------------------------------------------------------
+
+  public updatePlanetaDeLaNave(idNave: number, idPlaneta: number) {
+    const url = environment.baseURL + '/nave/' + idNave + '/planeta/' + idPlaneta;
+    return this.restService.get<Nave>(url);
   }
 
 }

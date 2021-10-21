@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TransaccionCompraComponent } from './comercio/transaccion-compra/transaccion-compra.component';
 import { TransaccionVentaComponent } from './comercio/transaccion-venta/transaccion-venta.component';
-import { InfoEstrellaComponent } from './estrellas/info-estrella/info-estrella.component';
 import { NavegacionEstrellasComponent } from './estrellas/navegacion-estrellas/navegacion-estrellas.component';
 import { InfoNaveComponent } from './menu/info-nave/info-nave.component';
 import { InfoTripulacionComponent } from './menu/info-tripulacion/info-tripulacion.component';
@@ -24,7 +23,6 @@ import { VistaPlanetaComponent } from './planetas/vista-planeta/vista-planeta.co
     InfoTripulanteComponent,
     InfoTripulacionComponent,
     InfoNaveComponent,
-    InfoEstrellaComponent,
     NavegacionEstrellasComponent,
     NavegacionPlanetasComponent,
     VistaPlanetaComponent,

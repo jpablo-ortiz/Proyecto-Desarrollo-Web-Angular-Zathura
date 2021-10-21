@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Planeta } from 'src/app/models/planeta/planeta';
+import { Producto } from 'src/app/models/producto/producto';
 import { environment } from 'src/environments/environment';
 import { RestService } from '../../rest.service';
 
@@ -7,6 +8,7 @@ import { RestService } from '../../rest.service';
   providedIn: 'root'
 })
 export class PlanetaService {
+
 
   constructor(private restService: RestService) { }
 
@@ -27,7 +29,7 @@ export class PlanetaService {
 
   public getPlaneta(id: number) {
     const url = environment.baseURL + '/planeta/' + id;
-    return this.restService.get(url);
+    return this.restService.get<Planeta>(url);
   }
 
   public getPlanetas() {
@@ -61,6 +63,10 @@ export class PlanetaService {
     const url = environment.baseURL + '/planeta/estrella/' + idEstrella;
     return this.restService.get<Planeta[]>(url);
 
+  }
+  public  getProductosXPlaneta(planetaId: number) {
+    const url = environment.baseURL + '/planeta/productos/' + planetaId;
+    return this.restService.get<Producto[]>(url);
   }
 
 }

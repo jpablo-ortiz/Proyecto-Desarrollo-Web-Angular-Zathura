@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Estrella } from 'src/app/models/estrella/estrella';
 import { EstrellaService } from 'src/app/shared/services/estrella/estrella.service';
+import { TripulanteService } from 'src/app/shared/services/tripulante/tripulante.service';
 
 @Component({
   selector: 'app-navegacion-estrellas',
@@ -10,24 +11,28 @@ import { EstrellaService } from 'src/app/shared/services/estrella/estrella.servi
 export class NavegacionEstrellasComponent implements OnInit {
 
   public estrellas: Estrella[] = [];
-  //Estrella que selecciono el jugador para viajar a x estrella
-  public estrellaViaje:Estrella = new Estrella(); 
 
-  constructor(private estrellaService: EstrellaService) { }
+  constructor(private estrellaService: EstrellaService, private tripulanteService: TripulanteService) { }
 
   ngOnInit(): void {
-    this.estrellaService.get10NearestEstrellas(6).subscribe(
+    this.getEstrellaActual();
+  }
+
+  // Realizar consulta para obtener el tripulante actual
+  public getEstrellaActual() {
+    var idTripulanteActual = this.tripulanteService.getIdTripulanteLogeado();
+    this.tripulanteService.getEstrellaActualTripulante(idTripulanteActual).subscribe(
+      estrella => {
+        this.get10EstrellasMasCercanas(estrella.id!);
+      }
+    );
+  }
+
+  public get10EstrellasMasCercanas(idEstrellaActual: number) {
+    this.estrellaService.get10NearestEstrellas(idEstrellaActual).subscribe(
       estrellas => {
         this.estrellas = estrellas;
       },
     );
   }
-
-  public actualizarEstrella(id: number) {
-    this.estrellaViaje.id = id; 
-    this.estrellaService.updateEstrella(this.estrellaViaje).subscribe();
-  }
-
-
-  
 }

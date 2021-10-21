@@ -1,3 +1,7 @@
+## TODO
+- [ ] Toca meter en el menú o en el appbar, botones que sean más amigables para el jugador, como lo es un boten que lo direccione a su planeta actual o Estrella actual
+- [ ] Hacer creación de una nave teniendo en cuenta los modelos
+
 # Organización Components
 
 - menu

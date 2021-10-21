@@ -1,7 +1,8 @@
-import { Planeta } from 'src/app/models/planeta/planeta';
-import { PlanetaService } from './../../shared/services/planeta/planeta.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { Planeta } from 'src/app/models/planeta/planeta';
+import { TripulanteService } from 'src/app/shared/services/tripulante/tripulante.service';
+import { PlanetaService } from './../../shared/services/planeta/planeta.service';
 
 @Component({
   selector: 'app-navegacion-planetas',
@@ -9,35 +10,49 @@ import { ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./navegacion-planetas.component.css']
 })
 export class NavegacionPlanetasComponent implements OnInit {
-  //private route: ActivatedRoute
-  estrellaId: number = 9;
-  planetaActualId: number= 142;
+
+  public estrellaId: number;
   public planetas: Planeta[] = [];
-  constructor(private planetaService: PlanetaService) { }
+  public planetaActual: Planeta = new Planeta();
+  public estaEnEstrellaActual: boolean = false;
 
-
-  ngOnInit(): void {
-    //this.estrellaId = + this.route.snapshot.paramMap.get('id');
-    this.getPlanetas(this.estrellaId);
+  constructor(private planetaService: PlanetaService, private tripulanteService: TripulanteService, private route: ActivatedRoute) {
+    this.estrellaId = Number(this.route.snapshot.paramMap.get('id'));
   }
 
-public getPlanetas(idEstrella:number){
-  this.planetaService.getPlanetasByEstrella(idEstrella).subscribe(
-    planetas => {
-      planetas.filter(planeta => {
-        if (planeta.id !== this.planetaActualId) {
-          this.planetas.push(planeta);
+  ngOnInit(): void {
+    this.getPlanetas(this.estrellaId!);
+  }
+
+  public getPlanetas(idEstrella: number) {
+    this.planetaService.getPlanetasByEstrella(idEstrella).subscribe(
+      planetas => {
+        this.planetas = planetas;
+        this.getPlanetaActual();
+      }
+    );
+  }
+
+  // Realizar consulta para obtener el tripulante actual
+  public getPlanetaActual() {
+    var idTripulanteActual = this.tripulanteService.getIdTripulanteLogeado();
+    this.tripulanteService.getPlanetaActualTripulante(idTripulanteActual).subscribe(
+      planeta => {
+        this.planetaActual = planeta;
+        for (let i = 0; i < this.planetas.length; i++) {
+          const element = this.planetas[i];
+
+          if (element.id == this.planetaActual.id) {
+            this.estaEnEstrellaActual = true;
+          }
         }
-      });
-    }
-  );
-
-
-}
-
-
-public actualizarPlaneta(id:number){
-
-}
+        if (this.estaEnEstrellaActual) {
+          console.log(this.planetas);
+          this.planetas = this.planetas.filter((planeta => planeta.id != this.planetaActual.id));
+          console.log(this.planetas);
+        }
+      }
+    );
+  }
 
 }
