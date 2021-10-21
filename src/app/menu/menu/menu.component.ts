@@ -19,7 +19,7 @@ export class MenuComponent implements OnInit {
   constructor(private tripulanteService: TripulanteService) { }
 
   public ngOnInit(): void {
-    this.id_tripulante_actual = 144;
+    this.id_tripulante_actual = 144  ;
     this.tripulanteService.setIdTripulanteLogeado(this.id_tripulante_actual);
     this.getTripulanteActual();
   }
