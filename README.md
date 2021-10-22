@@ -1,5 +1,6 @@
 # Organización Components
 
+
 - menu
   - menu
   - info-tripulante (subcomponentes)

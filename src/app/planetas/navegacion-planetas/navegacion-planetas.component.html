@@ -1,1 +1,43 @@
-<p>navegacion-planetas works!</p>
+<html>
+<h1 style="text-align: center; color:aliceblue;">Planetas</h1>
+
+<body>
+  <div class="container">
+    <div class="card " style="margin-top: 15px; " *ngIf="estaEnEstrellaActual">
+      <div class="card-body">
+
+        <h5 class="card-title" > Nombre {{planetaActual.nombre}}</h5>
+        <div class="containerFilaF">
+          <div class="itemF1">
+            <img src="/assets/images/planeta1.png" alt="image" style="width: 50%;">
+          </div>
+          <div class="itemF2">
+            <p class="card-text"> UBICACIÓN DE LA NAVE ACTUALMENTE</p>
+            <p class="card-text"> ID :{{planetaActual.id}}</p>
+
+            <a [routerLink]="['/planeta',planetaActual.id]" class="btn btn-actual">Ver Planeta Actual</a>
+          </div>
+
+        </div>
+
+
+
+
+      </div>
+    </div>
+    <div *ngFor="let planeta of planetas" class="wrapper">
+      <div class="card " style="margin-top: 15px;">
+        <div class="card-body">
+          <h5 class="card-title"> Nombre {{planeta.nombre}}</h5>
+          <p class="card-text"> ID :{{planeta.id}}</p>
+          <p class="card-text"> Habitado: {{planeta.habitado}}</p>
+          <a *ngIf="planeta.habitado" [routerLink]="['/planeta',planeta.id]" class="btn btn-primary">Viajar</a>
+          <a *ngIf="!planeta.habitado" class="btn btn-secondary">No se puede Viajar</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>

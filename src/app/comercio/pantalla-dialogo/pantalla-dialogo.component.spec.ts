@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InfoEstrellaComponent } from './info-estrella.component';
+import { PantallaDialogoComponent } from './pantalla-dialogo.component';
 
-describe('InfoEstrellaComponent', () => {
-  let component: InfoEstrellaComponent;
-  let fixture: ComponentFixture<InfoEstrellaComponent>;
+describe('PantallaDialogoComponent', () => {
+  let component: PantallaDialogoComponent;
+  let fixture: ComponentFixture<PantallaDialogoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ InfoEstrellaComponent ]
+      declarations: [ PantallaDialogoComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(InfoEstrellaComponent);
+    fixture = TestBed.createComponent(PantallaDialogoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

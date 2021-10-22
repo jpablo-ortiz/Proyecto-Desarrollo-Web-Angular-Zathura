@@ -1,1 +1,59 @@
-<p>navegacion-estrellas works!</p>
+<html>
+<body>
+
+  <div [ngSwitch]="sePuedeViajar">
+    <div *ngSwitchCase="1">
+
+      <h1 style="text-align: center; color:aliceblue;">Estrellas Cercanas</h1>
+      <div class="container">
+
+        <div class="card " style="margin-top: 15px;">
+          <div class="card-body">
+            <h5 class="card-title"> Nombre {{estrellaActual.nombre}}</h5>
+            <div class="containerFilaF">
+              <div class="itemF1">
+                <img src="/assets/images/estrella1.png" alt="image" style="width: 50%;">
+              </div>
+              <div class="itemF2">
+                <p class="card-text"> ID :{{estrellaActual.id}}</p>
+                <p class="card-text"> Habitado: {{estrellaActual.habitado}}</p>
+                <p class="card-text"> Distancia: {{estrellaActual.distancia}}</p>
+                <p class="card-text"> | x: {{estrellaActual.x}} | y: {{estrellaActual.y}} | z: {{estrellaActual.z}} |</p>
+                <a [routerLink]="['/planeta/estrella', estrellaActual.id!]" class="btn btn-actual">Ver Estrella Actual</a>
+              </div>
+
+            </div>
+
+
+          </div>
+        </div>
+        <div *ngFor="let estrella of estrellas" class="wrapper">
+          <div class="card " style="margin-top: 15px;">
+            <div class="card-body">
+              <h5 class="card-title"> Nombre {{estrella.nombre}}</h5>
+              <p class="card-text"> ID :{{estrella.id}}</p>
+              <p class="card-text"> Habitado: {{estrella.habitado}}</p>
+              <p class="card-text"> Distancia: {{estrella.distancia}}</p>
+              <p class="card-text"> | x: {{estrella.x}} | y: {{estrella.y}} | z: {{estrella.z}} |</p>
+              <a *ngIf="estrella.habitado" (click)="viajeAEstrella(estrellaActual.id!, estrella.id!)" class="btn btn-primary">Viajar</a>
+              <a *ngIf="!estrella.habitado" class="btn btn-secondary">No se puede Viajar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div *ngSwitchCase="2">
+
+      <app-pantalla-juego ></app-pantalla-juego>
+
+    </div>
+    <div *ngSwitchDefault>
+
+      <p>CARGANDO...</p>
+
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+.error {
+  color: red;
+}
+
+.card{
+  align-items: center;
+  text-align: center;
+  background-color: #242424;
+}
+
+.btn {
+  margin-bottom: 30px;
+  width: 30%;
+}
+
+

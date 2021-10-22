@@ -1,1 +1,56 @@
-<p>transaccion-compra works!</p>
+<html>
+<body>
+
+  <div [ngSwitch]="respuesta">
+    <div *ngSwitchCase="0">
+
+      <h1 style="text-align: center; color:aliceblue;">Realizar Compra</h1>
+      <div class="card" style="margin-top: 15px; padding: 15px;">
+        <h1 class="card-title"> Compra Producto: {{planetaXProducto.producto?.nombre!}}</h1>
+        <div class="containerColumnaF">
+
+          <div class="containerFilaF">
+            <h3 class="card-title itemF1">Stock:</h3>
+            <h3 class="card-title itemF3">{{planetaXProducto.stock}}</h3>
+          </div>
+
+          <div class="containerFilaF">
+            <h3 class="card-title itemF1">Precio Por Unidad:</h3>
+            <h3 class="card-title itemF3">${{planetaXProducto.precioCompra}}</h3>
+          </div>
+
+          <div class="containerFilaF">
+            <h3 class="card-title itemF1">Cantidad:</h3>
+            <input type="number" class="form-control" [(ngModel)]="cantidad" name="cantidad" min="1"
+              max="{{planetaXProducto.stock}}" required>
+          </div>
+
+          <div class="containerFilaF">
+            <h3 class="card-title itemF1">TOTAL:</h3>
+            <h3 class="card-title itemF3">${{cantidad * planetaXProducto.precioCompra!}}</h3>
+          </div>
+
+          <a class="btn btn-primary" (click)="botonRealizarCompra()">Comprar</a>
+          <button type="button" class="btn btn-primary" [routerLink]="['/planeta/', planetaId] ">Cancelar</button>
+        </div>
+      </div>
+
+    </div>
+    <div *ngSwitchCase="1">
+
+      <h1 style="text-align: center; color:aliceblue;">Mensaje Error</h1>
+      <app-pantalla-dialogo [mensaje]= "mensaje"></app-pantalla-dialogo>
+
+    </div>
+    <div *ngSwitchCase="2">
+
+      <h1 style="text-align: center; color:aliceblue;">Compra Realizada Con Éxito</h1>
+      <app-pantalla-dialogo-exito [mensaje]= "mensaje"></app-pantalla-dialogo-exito>
+
+    </div>
+    <div *ngSwitchDefault></div>
+  </div>
+
+</body>
+
+</html>

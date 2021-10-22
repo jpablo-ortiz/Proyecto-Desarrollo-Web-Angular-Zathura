@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-info-nave',
@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InfoNaveComponent implements OnInit {
 
-  constructor() { }
+   public title: string = "Datos nave";
+  @Input() public creditosNave?: number = 0;
+  @Input() public tiempoNave?: number = 0;
+
+  constructor() {  }
 
   ngOnInit(): void {
   }

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Producto } from 'src/app/models/producto/producto';
+import { PlanetaService } from 'src/app/shared/services/planeta/planeta.service';
 
 @Component({
   selector: 'app-lista-productos-compra',
@@ -7,9 +9,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListaProductosCompraComponent implements OnInit {
 
-  constructor() { }
+  @Input() public planetaIdActual: number = 0;
+
+  public productos: Producto[] = [];
+
+  constructor(private planetaService: PlanetaService) { }
 
   ngOnInit(): void {
+    this.getPlanetasXProducto(this.planetaIdActual)
+  }
+
+  public getPlanetasXProducto(planetaIdActual: number) {
+    this.planetaService.getProductosXPlaneta(planetaIdActual).subscribe(
+      async produc => {
+        for (let i = 0; i < produc.length; i++) {
+          var producto = produc[i];
+          this.planetaService.getPlanetaXProducto(planetaIdActual, producto.id!).subscribe(
+            planetaXProducto => {
+              if(planetaXProducto.stock! > 0){
+                this.productos.push(planetaXProducto.producto!);
+              }
+            }
+          );
+        }
+      }
+    );
   }
 
 }

@@ -1,1 +1,21 @@
-<p>lista-productos-venta works!</p>
+<html>
+<h1 style="text-align: center; color:aliceblue;">Productos Venta</h1>
+
+<body>
+    <div class="container">
+
+        <div *ngFor="let producto of productosMap | keyvalue" class="wrapper">
+          <div class="card " style="margin-top: 15px;">
+              <div class="card-body">
+                  <h5 class="card-title"> Nombre {{producto.key.nombre}}</h5>
+                  <p class="card-text"> ID :{{producto.key.id}}</p>
+                  <a *ngIf="producto.value" [routerLink]="['/vender', planetaId, producto.key.id]" class="btn btn-primary">Vender</a>
+                  <a *ngIf="!producto.value" class="btn btn-secondary">No posee este producto la nave actual</a>
+              </div>
+          </div>
+      </div>
+
+    </div>
+</body>
+
+</html>
