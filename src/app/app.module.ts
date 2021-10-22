@@ -16,6 +16,8 @@ import { ListaProductosVentaComponent } from './planetas/lista-productos-venta/l
 import { NavegacionPlanetasComponent } from './planetas/navegacion-planetas/navegacion-planetas.component';
 import { VistaPlanetaComponent } from './planetas/vista-planeta/vista-planeta.component';
 import { PantallaDialogoComponent } from './comercio/pantalla-dialogo/pantalla-dialogo.component';
+import { PantallaDialogoExitoComponent } from './comercio/pantalla-dialogo-exito/pantalla-dialogo-exito.component';
+import { PantallaJuegoComponent } from './estrellas/pantalla-juego/pantalla-juego.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { PantallaDialogoComponent } from './comercio/pantalla-dialogo/pantalla-d
     ListaProductosVentaComponent,
     TransaccionCompraComponent,
     TransaccionVentaComponent,
-    PantallaDialogoComponent
+    PantallaDialogoComponent,
+    PantallaDialogoExitoComponent,
+    PantallaJuegoComponent
   ],
   imports: [
     BrowserModule,

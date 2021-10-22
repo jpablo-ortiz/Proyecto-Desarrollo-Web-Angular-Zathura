@@ -20,3 +20,26 @@ html {
 .container {
     margin-bottom: 15px;
 }
+
+.btn-actual {
+    background-color: #4CAF50;
+}
+
+.containerFilaF {
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.itemF1 {
+  text-align: start;
+}
+
+.itemF2 {
+  text-align: start;
+}
+
+
+

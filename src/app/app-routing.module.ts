@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PantallaDialogoComponent } from './comercio/pantalla-dialogo/pantalla-dialogo.component';
 import { TransaccionCompraComponent } from './comercio/transaccion-compra/transaccion-compra.component';
 import { TransaccionVentaComponent } from './comercio/transaccion-venta/transaccion-venta.component';
 import { NavegacionEstrellasComponent } from './estrellas/navegacion-estrellas/navegacion-estrellas.component';
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'planeta/:id', component: VistaPlanetaComponent },
   { path: 'planeta/estrella/:id', component: NavegacionPlanetasComponent },
   { path: 'estrella', component: NavegacionEstrellasComponent },
+  { path: 'mensaje/:mensaje', component: PantallaDialogoComponent },
   { path: 'menu', component: MenuComponent },
   { path: '', pathMatch: 'full', redirectTo: 'menu' }
 ];

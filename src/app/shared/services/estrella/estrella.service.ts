@@ -61,4 +61,14 @@ export class EstrellaService {
     const url = environment.baseURL + '/estrella/10nearest/' + idEstrella;
     return this.restService.get<Estrella[]>(url);
   }
+
+  public verificarViaje(idEstrellaActual: number, idEstrella: number, idTripulante: number) {
+    const url = environment.baseURL + '/estrella/' + idEstrellaActual + '/verificar-viaje/' + idEstrella + '/tripulante/'+ idTripulante;
+    return this.restService.get<boolean>(url);
+  }
+
+  public viajarEntreEstrellas(idEstrellaActual: number, idEstrella: number, idTripulante: number) {
+    const url = environment.baseURL + '/estrella/' + idEstrellaActual + '/viajar/' + idEstrella + '/tripulante/'+ idTripulante;
+    return this.restService.get<boolean>(url);
+  }
 }

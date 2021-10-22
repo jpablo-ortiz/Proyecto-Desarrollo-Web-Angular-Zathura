@@ -23,7 +23,8 @@ export class TransaccionCompraComponent implements OnInit {
   public naveXProducto: NaveXProducto;
   public planetaXProducto: PlanetaXProducto;
 
-  private mensaje: string = "";
+  public mensaje: string = "";
+  public respuesta: number = 0;
 
   constructor(
     private tripulanteService: TripulanteService,
@@ -46,10 +47,7 @@ export class TransaccionCompraComponent implements OnInit {
 
   public getPlanetaXProducto(planetaId: number, productoId: number) {
     this.planetaService.getPlanetaXProducto(planetaId, productoId).subscribe(
-      pxp => {
-        this.planetaXProducto = pxp;
-
-      }
+      pxp => this.planetaXProducto = pxp,
     );
   }
 
@@ -69,29 +67,22 @@ export class TransaccionCompraComponent implements OnInit {
     );
   }
 
-  public botonRealizarCompra() {
-    this.realizarCompra(this.planetaId, this.productoId, this.naveActual.id!, this.cantidad);
-  }
-
   public realizarCompra(idPlaneta: number, idProducto: number, idNave: number, cantidad: number) {
-    // Angular
-    // 1. Planeta.id
-    // 2. Nave.id
-    // 3. Producto.id
-    // 4. Cantidad
     this.naveService.realizarCompra(idPlaneta, idProducto, idNave, cantidad).subscribe(
       res => {
         this.mensaje = res.mensaje!;
-        if (res.bool) {
-          // retornar mensaje: "Compra realizada con exito"
-          // pantalla y salir a planeta
+        if (res.error) {
+          this.respuesta = 1;
         }
         else {
-          // retornar mensaje: "No alcanzó los créditos"
-          // retornar mensaje: "No alcanzó el volumen"
-          // pantalla y quedarse en la transacción
+          this.respuesta = 2;
         }
       }
     );
   }
+
+  public botonRealizarCompra() {
+    this.realizarCompra(this.planetaId, this.productoId, this.naveActual.id!, this.cantidad);
+  }
+
 }

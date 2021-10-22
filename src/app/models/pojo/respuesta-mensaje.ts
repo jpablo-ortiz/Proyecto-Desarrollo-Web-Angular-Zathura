@@ -1,9 +1,9 @@
 export class RespuestaMensaje {
   public mensaje?: string;
-  public bool?: boolean;
+  public error?: boolean;
 
-  constructor(mensaje?: string, bool?: boolean) {
+  constructor(mensaje?: string, error?: boolean) {
     this.mensaje = mensaje;
-    this.bool = bool;
+    this.error = error;
   }
 }

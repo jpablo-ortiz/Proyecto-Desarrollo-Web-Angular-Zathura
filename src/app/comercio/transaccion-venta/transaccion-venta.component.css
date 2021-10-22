@@ -1,0 +1,50 @@
+.card {
+  justify-content: center;
+  text-align: center;
+}
+
+.card-title {
+  margin-bottom: 40px;
+  justify-content: center;
+}
+
+.containerColumnaF {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.containerFilaF {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: stretch;
+  gap: 100px;
+}
+
+.itemF1 {
+  flex: 100%;
+  text-align: start;
+}
+
+.itemF2 {
+  text-align: start;
+}
+
+input {
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+  background-color: #eee;
+  font-family: Arial;
+  font-size: 20pt;
+  height: 20%;
+}
+
+.btn {
+  margin-bottom: 20px;
+  width: 30%;
+}

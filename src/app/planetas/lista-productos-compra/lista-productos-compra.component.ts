@@ -10,24 +10,30 @@ import { PlanetaService } from 'src/app/shared/services/planeta/planeta.service'
 export class ListaProductosCompraComponent implements OnInit {
 
   @Input() public planetaIdActual: number = 0;
+
   public productos: Producto[] = [];
 
   constructor(private planetaService: PlanetaService) { }
-
 
   ngOnInit(): void {
     this.getPlanetasXProducto(this.planetaIdActual)
   }
 
   public getPlanetasXProducto(planetaIdActual: number) {
-    this.planetaService.getProductosXPlaneta(planetaIdActual).subscribe(produc => {
-
-      this.productos = produc;
-    }
-
-
+    this.planetaService.getProductosXPlaneta(planetaIdActual).subscribe(
+      async produc => {
+        for (let i = 0; i < produc.length; i++) {
+          var producto = produc[i];
+          this.planetaService.getPlanetaXProducto(planetaIdActual, producto.id!).subscribe(
+            planetaXProducto => {
+              if(planetaXProducto.stock! > 0){
+                this.productos.push(planetaXProducto.producto!);
+              }
+            }
+          );
+        }
+      }
     );
-
   }
 
 }

@@ -68,7 +68,7 @@ export class NaveService {
   }
 
 
-  public  getNaveXProducto(naveId: number, productoId: number) {
+  public getNaveXProducto(naveId: number, productoId: number) {
     const url = environment.baseURL + '/nave/' + naveId + '/producto/' + productoId;
     return this.restService.get<NaveXProducto>(url);
   }

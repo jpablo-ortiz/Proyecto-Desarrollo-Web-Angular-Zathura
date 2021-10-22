@@ -3,11 +3,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-pantalla-dialogo',
-  templateUrl: './pantalla-dialogo.component.html',
-  styleUrls: ['./pantalla-dialogo.component.css']
+  selector: 'app-pantalla-dialogo-exito',
+  templateUrl: './pantalla-dialogo-exito.component.html',
+  styleUrls: ['./pantalla-dialogo-exito.component.css']
 })
-export class PantallaDialogoComponent implements OnInit {
+export class PantallaDialogoExitoComponent implements OnInit {
 
   @Input() public mensaje: string;
 
@@ -21,5 +21,4 @@ export class PantallaDialogoComponent implements OnInit {
   goBack() {
     this.location.back();
   }
-
 }
