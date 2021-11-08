@@ -92,4 +92,13 @@ export class TripulanteService {
     return Number(sessionStorage.getItem('idTripulanteActual'));
   }
 
+
+  public getProductosVenta(tripulanteId :number, planetaId:number){
+    const url = environment.baseURL + '/tripulante/' + tripulanteId + '/'+ planetaId + '/productos';
+    return this.restService.get<any>(url);
+
+  }
+
+
+
 }

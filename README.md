@@ -1,5 +1,13 @@
-# Organización Components
+# TODO's
 
+- [ ] Implementar authenticación
+- [ ] Implementar roles y permisos de acuerdo al rol
+- [ ] Implementar todas las pantallas de llenar datos del usuario y elegir roles y naves (si existe) o crear una con un modelo nave.
+- [ ] Pruebas Unitarias (Java Spring)
+- [ ] Pruebas de integración (Creo que Angular)
+
+
+# Organización Components
 
 - menu
   - menu
