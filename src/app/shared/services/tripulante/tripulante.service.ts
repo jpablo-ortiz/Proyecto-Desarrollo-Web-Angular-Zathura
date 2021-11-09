@@ -11,16 +11,16 @@ import { RestService } from '../../rest.service';
   providedIn: 'root'
 })
 export class TripulanteService {
- 
 
-
-  constructor(private restService: RestService) { }
+  constructor(
+    private restService: RestService
+  ) { }
 
   // CRUD - CREATE - READ - UPDATE - DELETE
 
-	// ------------------------------------------------------------
-	// -------------------------- CREATE --------------------------
-	// ------------------------------------------------------------
+  // ------------------------------------------------------------
+  // -------------------------- CREATE --------------------------
+  // ------------------------------------------------------------
 
   public createTripulante(tripulante: Tripulante) {
     const url = environment.baseURL + '/tripulante';
@@ -33,7 +33,7 @@ export class TripulanteService {
 
   public getTripulante(id: number) {
     const url = environment.baseURL + '/tripulante/' + id;
-    return this.restService.get<Tripulante>(url);
+    return this.restService.get<Tripulante>(url, { withCredentials: true });
   }
 
   public getTripulantes() {
@@ -88,46 +88,84 @@ export class TripulanteService {
   // ------------------------------------------------------------
 
   public setIdTripulanteLogeado(id: number) {
-    sessionStorage.setItem('idTripulanteActual',  String(id));
+    sessionStorage.setItem('idTripulanteActual', String(id));
   }
 
   public getIdTripulanteLogeado(): number {
     return Number(sessionStorage.getItem('idTripulanteActual'));
   }
 
+  public cerrarSesion(): void {
+    var sesionIniciada = this.isAuth();
+    var mensaje = '';
 
-  public getProductosVenta(tripulanteId :number, planetaId:number){
-    const url = environment.baseURL + '/tripulante/' + tripulanteId + '/'+ planetaId + '/productos';
+    console.log(sesionIniciada);
+
+    if (sesionIniciada) {
+      this.logout().subscribe(
+        () => {
+          sessionStorage.clear;
+          sessionStorage.setItem('Auth', 'false');
+          mensaje = 'Sesion cerrada correctamente';
+        },
+        error => mensaje = 'Error'
+      );
+    }
+    else {
+      mensaje = 'Error: No hay una sesion abierta';
+    }
+  }
+
+  public isAuth(): boolean {
+    if (sessionStorage.getItem('Auth') != null && sessionStorage.getItem('Auth') === 'true') {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+  public getProductosVenta(tripulanteId: number, planetaId: number) {
+    const url = environment.baseURL + '/tripulante/' + tripulanteId + '/' + planetaId + '/productos';
     return this.restService.get<any>(url);
 
   }
 
-///////////////////////////////////////
-/////    Autenticación
-///////////////////////////////////////
+  ///////////////////////////////////////
+  /////    Autenticación
+  ///////////////////////////////////////
 
 
-public login(usuario: string, password: string) {
-  const formHeaders = new HttpHeaders();
-  formHeaders.append('Content-Type', 'application/x-www-form-urlencoded');
+  public login(usuario: string, password: string) {
+    const formHeaders = new HttpHeaders();
+    formHeaders.append('Content-Type', 'application/x-www-form-urlencoded');
 
-  const formParams = new HttpParams()
-    .set('username', usuario)
-    .set('password', password);
+    const formParams = new HttpParams()
+      .set('username', usuario)
+      .set('password', password);
 
-  return this.restService.post<any>('http://localhost:8080/login', null, {
-    headers: formHeaders,
-    params: formParams,
-    withCredentials: true
-  });
-}
-
-  public  getTripulantePorLogin(usuario: string, password: string) {
-    const url = environment.baseURL + '/tripulante/'+ usuario +'/login/'+ password;
-    return this.restService.get<Tripulante>(url,{ withCredentials: true });
+    return this.restService.post<any>('http://localhost:8080/login', null, {
+      headers: formHeaders,
+      params: formParams,
+      withCredentials: true
+    });
   }
 
- public logout() {
+  public getTripulantePorLogin(usuario: string, password: string) {
+    const url = environment.baseURL + '/tripulante/' + usuario + '/login/' + password;
+    return this.restService.get<Tripulante>(url, { withCredentials: true });
+  }
+
+  public logout() {
     return this.restService.post('http://localhost:8080/logout', '',
       { withCredentials: true });
   }

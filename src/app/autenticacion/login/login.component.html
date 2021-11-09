@@ -1,0 +1,28 @@
+<body>
+    <div class="holdingcontainer full-height">
+        <div class="container">
+            <h1 class="h1-top">Iniciar sesión</h1>
+
+            <div class="card internalcontainerL " style="margin-top: 15px;">
+                <div class="card-body">
+                    <form (ngSubmit)="Ingresar()">
+                        <div class="form-group">
+                            <h5 class="card-title"> Nombre Usuario </h5>
+                            <input type="text" class="form-control" [(ngModel)]="usuario" name="usuario"
+                                placeholder="username">
+                            <h5 class="card-title  mt-3"> Contraseña Usuario </h5>
+                            <input type="password" class="form-control" [(ngModel)]="password" name="password"
+                                placeholder="password">
+                            <button class="btn btn-primary" type="submit" id="login">Iniciar sesión</button>
+                        </div>
+                    </form>
+
+                    <div class="alert alert-danger mt-5" role="alert" *ngIf="mensaje">
+                        <strong>Error!</strong> {{mensaje}}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>

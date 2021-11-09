@@ -1,0 +1,46 @@
+<body>
+    <div class="holdingcontainer full-height">
+        <div class="container">
+
+            <h1 class="h1-top">Registro Zathura</h1>
+            <form (ngSubmit)="Registrarse()" class="row g-3 needs-validation" novalidate>
+                <div class="card internalcontainerL" style="margin-top: 15px;">
+                    <div class="card-body">
+
+                        <h5 class="card-title"> Nombre Usuario </h5>
+
+                        <input type="text" class="form-control" id="validationCustom01" [(ngModel)]="usuario"
+                        name="usuario" placeholder="username" required>
+
+                        <h5 class="card-title mt-3"> Contraseña Usuario </h5>
+                        <input type="text" class="form-control" [(ngModel)]="password" name="password"
+                            placeholder="password" required>
+
+                        <h5 class="card-title mt-3"> Rol Usuario </h5>
+
+                        <div class="form-check">
+                            <input type="checkbox" class="check" id="rolCapitan" name="rolCapitan"
+                                [(ngModel)]="rolCapitan" (click)="checkboxChange('capitan')">
+                            <label class="form-check-label" for="rolCapitan">Capitán</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input type="checkbox" class="check" id="rolNavegante" name="rolNavegante"
+                                [(ngModel)]="rolNavegante" (click)="checkboxChange('navegante')">
+                            <label class="form-check-label" for="rolNavegante">Navegante</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input type="checkbox" class="check" id="rolComerciante" name="rolComerciante"
+                                [(ngModel)]="rolComerciante" (click)="checkboxChange('comerciante')">
+                            <label class="form-check-label" for="rolComerciante">Comerciante</label>
+                        </div>
+                        <button class="btn btn-primary" type="submit" id="login">Registrarse</button>
+
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</body>
