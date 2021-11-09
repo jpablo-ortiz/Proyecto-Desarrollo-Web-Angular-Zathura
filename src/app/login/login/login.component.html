@@ -1,0 +1,23 @@
+<body>
+
+    <div class="container">
+        <h2>Ingresar sesión</h2>
+        <form (ngSubmit)="Ingresar()">
+            <div class="card " style="margin-top: 15px;">
+                <div class="card-body">
+                    <h5 class="card-title"> Nombre Usuario </h5>
+                    <input type="text" class="usuario" [(ngModel)]="usuario" name="usuario" placeholder="UserName">
+                    <h5 class="card-title"> Contraseña Usuario </h5>
+                    <input type="password" class="pwd" [(ngModel)]="password" name="password" placeholder="password">
+                    <button class="button" type="submit" id="login">Ingresar</button>
+                    <!-- <a [routerLink]="['/login', idTripulante]" class="btn btn-primary">Ingresar</a> -->
+                    <a [routerLink]="['/registro']" class="btn btn-primary">Registrarse</a>
+                </div>
+            </div>
+        </form>
+        <button class="btn btn-primary" (click)="salir()">Salirse</button>
+        <pre> {{mensaje}} </pre>
+        <pre> {{mensaje2}} </pre>
+
+    </div>
+</body>

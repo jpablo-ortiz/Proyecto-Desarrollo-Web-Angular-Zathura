@@ -1,0 +1,23 @@
+<body>
+    <div class="container">
+        <h2>Registro Zathura</h2>
+        <form (ngSubmit)="Registrarse()">
+            <div class="card " style="margin-top: 15px;">
+                <div class="card-body">
+                    <h5 class="card-title"> Nombre Usuario </h5>
+                    <input type="text" class="usuario" [(ngModel)]="usuario" name="usuario" placeholder="UserName">
+                    <h5 class="card-title"> Contraseña Usuario </h5>
+                    <input type="text" class="pwd" [(ngModel)]="password" name="password" placeholder="password">
+                    <h5 class="card-title"> Rol Usuario </h5>
+                    <input type="checkbox" class="rolCapitan" [(ngModel)]="rolCapitan" name="rolCapitan" checked="checked" />Capitán
+                    <input type="checkbox" class="rolNavegante" [(ngModel)]="rolNavegante" name="rolNavegante" checked="checked" />Navegante
+                    <input type="checkbox" class="rolComerciante" [(ngModel)]="rolComerciante" name="rolComerciante" checked="checked" />Comerciante
+                    <button class="button" type="submit" id="login">Registrarse</button>
+                    <!-- <a [routerLink]="['/login', idTripulante]" class="btn btn-primary">Ingresar</a> -->
+
+                </div>
+            </div>
+        </form>
+        <button class="btn btn-primary" (click)="salir()">Salirse</button>
+    </div>
+</body>

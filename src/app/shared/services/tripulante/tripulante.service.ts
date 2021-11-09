@@ -1,3 +1,4 @@
+import { HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Estrella } from 'src/app/models/estrella/estrella';
 import { Nave } from 'src/app/models/nave/nave';
@@ -10,6 +11,8 @@ import { RestService } from '../../rest.service';
   providedIn: 'root'
 })
 export class TripulanteService {
+ 
+
 
   constructor(private restService: RestService) { }
 
@@ -99,6 +102,35 @@ export class TripulanteService {
 
   }
 
+///////////////////////////////////////
+/////    Autenticación
+///////////////////////////////////////
+
+
+public login(usuario: string, password: string) {
+  const formHeaders = new HttpHeaders();
+  formHeaders.append('Content-Type', 'application/x-www-form-urlencoded');
+
+  const formParams = new HttpParams()
+    .set('username', usuario)
+    .set('password', password);
+
+  return this.restService.post<any>('http://localhost:8080/login', null, {
+    headers: formHeaders,
+    params: formParams,
+    withCredentials: true
+  });
+}
+
+  public  getTripulantePorLogin(usuario: string, password: string) {
+    const url = environment.baseURL + '/tripulante/'+ usuario +'/login/'+ password;
+    return this.restService.get<Tripulante>(url,{ withCredentials: true });
+  }
+
+ public logout() {
+    return this.restService.post('http://localhost:8080/logout', '',
+      { withCredentials: true });
+  }
 
 
 }
