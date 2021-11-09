@@ -37,7 +37,7 @@ export class NaveService {
 
   public getNaves() {
     const url = environment.baseURL + '/nave';
-    return this.restService.get<Nave>(url);
+    return this.restService.get<Nave[]>(url);
   }
 
   // ------------------------------------------------------------

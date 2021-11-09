@@ -31,7 +31,7 @@ export class ModeloNaveService {
 
   public getModeloNaves() {
     const url = 'modelo-nave';
-    return this.restService.get(url);
+    return this.restService.get<ModeloNave[]>(url);
   }
 
   // ------------------------------------------------------------

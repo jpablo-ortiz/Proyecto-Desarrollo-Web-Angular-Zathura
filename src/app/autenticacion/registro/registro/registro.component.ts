@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
+import { Tripulante } from 'src/app/models/tripulante/tripulante';
+import { TripulanteService } from 'src/app/shared/services/tripulante/tripulante.service';
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -9,16 +11,17 @@ export class RegistroComponent implements OnInit {
   public usuario = "";
   public password = "";
 
-
   rolCapitan = false;
   rolNavegante = false;
   rolComerciante = false;
   template = true;
 
-  constructor() { }
+  constructor(
+    private tripulanteService: TripulanteService,
+    private router: Router,
+  ) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   checkboxChange(string: string) {
     if (string === 'capitan') {
@@ -37,25 +40,22 @@ export class RegistroComponent implements OnInit {
   }
 
   Registrarse() {
+    var tripulante: Tripulante = new Tripulante();
+    tripulante.username = this.usuario;
+    tripulante.password = this.password;
+    tripulante.capitan = this.rolCapitan;
+    tripulante.navegante = this.rolNavegante;
+    tripulante.comerciante = this.rolComerciante;
 
-  }
-
-  //getTripulantePorLogin() {
-  //  this.tripulanteService.getTripulantePorLogin(this.usuario, this.password).subscribe(
-  //    result => {
-  //      this.tripulanteActual = result;
-  //      this.idTripulante = result.id!;
-  //      this.tripulanteService.setIdTripulanteLogeado(this.idTripulante);
-  //      this.router.navigate(['/menu']).then(() => {
-  //        window.location.reload();
-  //      });
-  //    },
-  //    error => console.log('NO SE ENCONTRÓ TRIPULANTE')
-  //  );
-  //}
-
-  salir() {
-
+    this.tripulanteService.createTripulante(tripulante).subscribe(
+      data => {
+        var idTripulante = data.id;
+        this.router.navigate(['/navecreacion', idTripulante]).then(() => {
+          window.location.reload();
+        });
+      },
+      error => console.log(error),
+    );
   }
 
 }
