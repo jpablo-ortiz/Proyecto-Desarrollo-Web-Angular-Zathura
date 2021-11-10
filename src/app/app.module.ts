@@ -2,6 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './autenticacion/login/login.component';
@@ -21,6 +22,7 @@ import { ListaProductosCompraComponent } from './planetas/lista-productos-compra
 import { ListaProductosVentaComponent } from './planetas/lista-productos-venta/lista-productos-venta.component';
 import { NavegacionPlanetasComponent } from './planetas/navegacion-planetas/navegacion-planetas.component';
 import { VistaPlanetaComponent } from './planetas/vista-planeta/vista-planeta.component';
+import { BuscarNaveComponent } from './autenticacion/registro/buscar-nave/buscar-nave.component';
 
 @NgModule({
   declarations: [
@@ -41,15 +43,15 @@ import { VistaPlanetaComponent } from './planetas/vista-planeta/vista-planeta.co
     PantallaJuegoComponent,
     LoginComponent,
     RegistroComponent,
-    CreacionNaveComponent
+    CreacionNaveComponent,
+    BuscarNaveComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-
-
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

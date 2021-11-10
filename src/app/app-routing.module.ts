@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './autenticacion/login/login.component';
+import { BuscarNaveComponent } from './autenticacion/registro/buscar-nave/buscar-nave.component';
 import { CreacionNaveComponent } from './autenticacion/registro/creacion-nave/creacion-nave.component';
 import { RegistroComponent } from './autenticacion/registro/registro/registro.component';
 import { PantallaDialogoComponent } from './comercio/pantalla-dialogo/pantalla-dialogo.component';
@@ -12,6 +13,7 @@ import { NavegacionPlanetasComponent } from './planetas/navegacion-planetas/nave
 import { VistaPlanetaComponent } from './planetas/vista-planeta/vista-planeta.component';
 
 const routes: Routes = [
+  { path: 'buscarnave/:idTripulante', component: BuscarNaveComponent },
   { path: 'navecreacion/:idTripulante', component: CreacionNaveComponent },
   { path: 'registro', component: RegistroComponent },
   { path: 'login', component: LoginComponent },

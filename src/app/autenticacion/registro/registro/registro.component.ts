@@ -16,6 +16,8 @@ export class RegistroComponent implements OnInit {
   rolComerciante = false;
   template = true;
 
+  public mensaje = "";
+
   constructor(
     private tripulanteService: TripulanteService,
     private router: Router,
@@ -46,6 +48,8 @@ export class RegistroComponent implements OnInit {
     tripulante.capitan = this.rolCapitan;
     tripulante.navegante = this.rolNavegante;
     tripulante.comerciante = this.rolComerciante;
+    tripulante.id = null;
+    tripulante.nave = null;
 
     this.tripulanteService.createTripulante(tripulante).subscribe(
       data => {
@@ -54,7 +58,7 @@ export class RegistroComponent implements OnInit {
           window.location.reload();
         });
       },
-      error => console.log(error),
+      error => this.mensaje= "Error usuario ya existe",
     );
   }
 
