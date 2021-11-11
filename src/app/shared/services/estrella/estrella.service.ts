@@ -27,12 +27,12 @@ export class EstrellaService {
 
   public getEstrella(id: number) {
     const url = environment.baseURL + '/estrella/' + id;
-    return this.restService.get(url);
+    return this.restService.get(url, { withCredentials: true });
   }
 
   public getEstrellas() {
     const url = environment.baseURL + '/estrella';
-    return this.restService.get<Estrella>(url);
+    return this.restService.get<Estrella>(url, { withCredentials: true });
   }
 
   // ------------------------------------------------------------
@@ -50,7 +50,7 @@ export class EstrellaService {
 
   public deleteEstrella(id: number) {
     const url = environment.baseURL + '/estrella/' + id;
-    return this.restService.delete(url);
+    return this.restService.delete(url, { withCredentials: true });
   }
 
   // ------------------------------------------------------------
@@ -59,16 +59,16 @@ export class EstrellaService {
 
   public get10NearestEstrellas(idEstrella: number) {
     const url = environment.baseURL + '/estrella/10nearest/' + idEstrella;
-    return this.restService.get<Estrella[]>(url);
+    return this.restService.get<Estrella[]>(url, { withCredentials: true });
   }
 
   public verificarViaje(idEstrellaActual: number, idEstrella: number, idTripulante: number) {
     const url = environment.baseURL + '/estrella/' + idEstrellaActual + '/verificar-viaje/' + idEstrella + '/tripulante/'+ idTripulante;
-    return this.restService.get<boolean>(url);
+    return this.restService.get<boolean>(url, { withCredentials: true });
   }
 
   public viajarEntreEstrellas(idEstrellaActual: number, idEstrella: number, idTripulante: number) {
     const url = environment.baseURL + '/estrella/' + idEstrellaActual + '/viajar/' + idEstrella + '/tripulante/'+ idTripulante;
-    return this.restService.get<boolean>(url);
+    return this.restService.get<boolean>(url, { withCredentials: true });
   }
 }

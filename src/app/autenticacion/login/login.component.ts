@@ -13,7 +13,6 @@ export class LoginComponent implements OnInit {
   public usuario = '';
   public password = '';
   public sesionIniciada = false;
-
   public mensaje!: string;
 
   constructor(
@@ -48,6 +47,20 @@ export class LoginComponent implements OnInit {
         this.tripulanteActual = result;
         this.idTripulante = result.id!;
         this.tripulanteService.setIdTripulanteLogeado(this.idTripulante);
+
+        var rol = "";
+        if (this.tripulanteActual.capitan == true) {
+          rol = "Capitan"
+        }
+        else if (this.tripulanteActual.navegante == true) {
+          rol = "Navegante"
+        }
+        else if (this.tripulanteActual.comerciante == true) {
+          rol = "Comerciante"
+        }
+
+        this.tripulanteService.setRolTripulanteLogeado(rol);
+
         this.router.navigate(['/menu']).then(() => {
           window.location.reload();
         });

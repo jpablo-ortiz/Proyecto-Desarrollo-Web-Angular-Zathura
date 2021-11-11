@@ -1,29 +1,36 @@
 <main>
     <nav class="navbar navbar-expand-lg navbar-night bg-black transparency-black">
-        <div class="container-fluid transparency-black">
 
-            <a class="navbar-brand" [routerLink]="['/']">Zathura</a>
+        <div *ngIf="auth" class="container-fluid transparency-black">
+            <a class="navbar-brand" [routerLink]="['/menu']">Zathura</a>
 
-            <div *ngIf="auth" class="collapse navbar-collapse transparency-black" id="navbarNavAltMarkup">
+            <div class="collapse navbar-collapse transparency-black" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-link active" [routerLink]="['/menu']">Menú</a>
                 </div>
-            </div>
-
-            <div *ngIf="auth">
-                <div class="text-end">
-                    <button type="button" class="btn btn-danger p-1" (click)="salir()">Salir</button>
+                <div *ngIf="rolNavegante" class="navbar-nav">
+                    <a class="nav-link active" [routerLink]="['/estrella'] ">Navegar entre Estrellas</a>
+                </div>
+                <div *ngIf="rolComerciante" class="navbar-nav">
+                    <a class="nav-link active" (click)="abrirPlanetaActual()">Comerciar en el planeta Actual</a>
                 </div>
             </div>
 
-            <div *ngIf="!auth">
-                <div class="text-end">
-                    <button type="button" [routerLink]="['/login']" class="btn btn-outline-light me-2">Ingresar</button>
-                    <button type="button" [routerLink]="['/registro']" class="btn btn-warning me-4">Registro</button>
-                </div>
+            <div class="text-end">
+                <button type="button" class="btn btn-danger p-1" (click)="salir()">Salir</button>
             </div>
-
         </div>
+
+        <div *ngIf="!auth" class="container-fluid transparency-black">
+            <a class="navbar-brand" [routerLink]="['/']">Zathura</a>
+            <div class="text-end">
+                <button type="button" [routerLink]="['/login']" class="btn btn-outline-light me-2">Ingresar</button>
+                <button type="button" [routerLink]="['/registro']" class="btn btn-warning me-4">Registro</button>
+            </div>
+        </div>
+
+
+
     </nav>
 
     <div class="height">

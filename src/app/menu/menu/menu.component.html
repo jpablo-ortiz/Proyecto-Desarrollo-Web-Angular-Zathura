@@ -3,23 +3,22 @@
 <h1 style="text-align: center; color:aliceblue;">Menú Zathura</h1>
 <div class="holdingcontainer full-height">
 
-  <div class="internalcontainerL" style="color: aliceblue;">
-    <app-info-nave [creditosNave]="actual.nave?.cantidadCredito" [tiempoNave]="actual.nave?.totalTiempoViaje">
-    </app-info-nave>
-  </div>
+    <div class="internalcontainerL" style="color: aliceblue;">
+        <app-info-nave [creditosNave]="actual.nave?.cantidadCredito" [tiempoNave]="actual.nave?.totalTiempoViaje">
+        </app-info-nave>
+    </div>
 
-  <div class="internalcontainerM" style="color: aliceblue;">
+    <div class="internalcontainerM" style="color: aliceblue;">
 
-    <img src="/assets/images/nave4.png" alt="image">
-    <h1 class="h1-top">{{nave}}</h1>
-    <button type="button" class="btn btn-primary" [routerLink]="['/estrella'] ">Jugar</button>
+        <img src="/assets/images/nave4.png" alt="image">
+        <h1 class="h1-top">{{nave}}</h1>
 
-  </div>
-  <div class="internalcontainerR" style="color: aliceblue;">
-    <app-info-tripulante [rolJug]="rolTrip" [jug]="actual.username!"></app-info-tripulante>
-    <div class="p-3"></div>
-    <app-info-tripulacion [tripulanteActualId]="actual.id!" [naveId]="actual.nave!.id!"></app-info-tripulacion>
-  </div>
+    </div>
+    <div class="internalcontainerR" style="color: aliceblue;">
+        <app-info-tripulante [rolJug]="rolTrip" [jug]="actual.username!"></app-info-tripulante>
+        <div class="p-3"></div>
+        <app-info-tripulacion [tripulanteActualId]="actual.id!" [naveId]="actual.nave!.id!"></app-info-tripulacion>
+    </div>
 
 </div>
 

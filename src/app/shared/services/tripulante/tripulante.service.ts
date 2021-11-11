@@ -38,7 +38,7 @@ export class TripulanteService {
 
   public getTripulantes() {
     const url = environment.baseURL + '/tripulante';
-    return this.restService.get<Tripulante[]>(url);
+    return this.restService.get<Tripulante[]>(url, { withCredentials: true });
   }
 
   // ------------------------------------------------------------
@@ -56,7 +56,7 @@ export class TripulanteService {
 
   public deleteTripulante(id: number) {
     const url = environment.baseURL + '/tripulante/' + id;
-    return this.restService.delete(url);
+    return this.restService.delete(url, { withCredentials: true });
   }
 
   // ------------------------------------------------------------
@@ -65,22 +65,22 @@ export class TripulanteService {
 
   public getTripulantesByNaveId(idNave: number) {
     const url = environment.baseURL + '/tripulante/nave/' + idNave;
-    return this.restService.get<Tripulante[]>(url);
+    return this.restService.get<Tripulante[]>(url, { withCredentials: true });
   }
 
   public getEstrellaActualTripulante(idTripulanteActual: number) {
     const url = environment.baseURL + '/tripulante/' + idTripulanteActual + '/estrella';
-    return this.restService.get<Estrella>(url);
+    return this.restService.get<Estrella>(url, { withCredentials: true });
   }
 
   public getPlanetaActualTripulante(idTripulanteActual: number) {
     const url = environment.baseURL + '/tripulante/' + idTripulanteActual + '/planeta';
-    return this.restService.get<Planeta>(url);
+    return this.restService.get<Planeta>(url, { withCredentials: true });
   }
 
   public getNaveActualTripulante(idTripulante: number) {
     const url = environment.baseURL + '/tripulante/' + idTripulante + '/nave';
-    return this.restService.get<Nave>(url);
+    return this.restService.get<Nave>(url, { withCredentials: true });
   }
 
   // ------------------------------------------------------------
@@ -91,8 +91,26 @@ export class TripulanteService {
     sessionStorage.setItem('idTripulanteActual', String(id));
   }
 
+  public setRolTripulanteLogeado(rol: string) {
+    sessionStorage.setItem('rolTripulanteActual', rol);
+  }
+
   public getIdTripulanteLogeado(): number {
-    return Number(sessionStorage.getItem('idTripulanteActual'));
+    if (this.isAuth()) {
+      return Number(sessionStorage.getItem('idTripulanteActual'));
+    }
+    else {
+      return -1;
+    }
+  }
+
+  public getRolTripulanteLogeado(): string {
+    if (this.isAuth()) {
+      return sessionStorage.getItem('rolTripulanteActual')!;
+    }
+    else {
+      return '';
+    }
   }
 
   public cerrarSesion(): void {
@@ -106,6 +124,8 @@ export class TripulanteService {
         () => {
           sessionStorage.clear;
           sessionStorage.setItem('Auth', 'false');
+          sessionStorage.removeItem('idTripulanteActual');
+          sessionStorage.removeItem('rolTripulanteActual');
           mensaje = 'Sesion cerrada correctamente';
         },
         error => mensaje = 'Error'
@@ -136,7 +156,7 @@ export class TripulanteService {
 
   public getProductosVenta(tripulanteId: number, planetaId: number) {
     const url = environment.baseURL + '/tripulante/' + tripulanteId + '/' + planetaId + '/productos';
-    return this.restService.get<any>(url);
+    return this.restService.get<any>(url, { withCredentials: true });
 
   }
 

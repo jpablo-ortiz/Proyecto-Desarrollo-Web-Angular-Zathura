@@ -10,6 +10,8 @@ import { TripulanteService } from './shared/services/tripulante/tripulante.servi
 export class AppComponent {
   title = 'zathura';
   auth = false;
+  rolComerciante = false;
+  rolNavegante = false;
 
   constructor(
     private tripulanteService: TripulanteService,
@@ -18,6 +20,15 @@ export class AppComponent {
 
   ngOnInit() {
     this.auth = this.tripulanteService.isAuth();
+    var rol = this.tripulanteService.getRolTripulanteLogeado();
+    if (rol == "Comerciante") {
+      this.rolComerciante = true;
+    } else if (rol == "Navegante") {
+      this.rolNavegante = true;
+    } else if (rol == "Capitan") {
+      this.rolNavegante = true;
+      this.rolComerciante = true;
+    }
   }
 
   salir() {
@@ -25,5 +36,16 @@ export class AppComponent {
     this.router.navigate(['/login']).then(() => {
       window.location.reload();
     });
+  }
+
+  abrirPlanetaActual() {
+    var id = this.tripulanteService.getIdTripulanteLogeado();
+    if (id != -1) {
+      this.tripulanteService.getPlanetaActualTripulante(id).subscribe(
+        planeta => {
+          this.router.navigate(['/planeta/' + planeta.id]);
+        },
+      );
+    }
   }
 }

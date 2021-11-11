@@ -48,6 +48,7 @@ export class CreacionNaveComponent implements OnInit {
         var nave = new Nave();
         nave.modeloNave = this.modeloNaveActual;
         nave.tripulantes = [tripulante];
+        nave.nombre = this.nombre;
         this.naveService.createNave(nave).subscribe(
           nave => {
             this.router.navigate(['/login']).then(() => {

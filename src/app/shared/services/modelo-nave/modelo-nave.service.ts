@@ -27,12 +27,12 @@ export class ModeloNaveService {
 
   public getModeloNave(id: number) {
     const url = environment.baseURL + '/modelo-nave/' + id;
-    return this.restService.get(url);
+    return this.restService.get(url, { withCredentials: true });
   }
 
   public getModeloNaves() {
     const url = environment.baseURL + '/modelo-nave';
-    return this.restService.get<ModeloNave[]>(url);
+    return this.restService.get<ModeloNave[]>(url, { withCredentials: true });
   }
 
   // ------------------------------------------------------------
@@ -50,6 +50,6 @@ export class ModeloNaveService {
 
   public deleteModeloNave(id: number) {
     const url = environment.baseURL + '/modelo-nave/' + id;
-    return this.restService.delete(url);
+    return this.restService.delete(url, { withCredentials: true });
   }
 }

@@ -31,12 +31,12 @@ export class PlanetaService {
 
   public getPlaneta(id: number) {
     const url = environment.baseURL + '/planeta/' + id;
-    return this.restService.get<Planeta>(url);
+    return this.restService.get<Planeta>(url, { withCredentials: true });
   }
 
   public getPlanetas() {
     const url = environment.baseURL + '/planeta';
-    return this.restService.get<Planeta>(url);
+    return this.restService.get<Planeta>(url, { withCredentials: true });
   }
 
   // ------------------------------------------------------------
@@ -54,7 +54,7 @@ export class PlanetaService {
 
   public deletePlaneta(id: number) {
     const url = environment.baseURL + '/planeta/' + id;
-    return this.restService.delete(url);
+    return this.restService.delete(url, { withCredentials: true });
   }
   // ------------------------------------------------------------
   // -------------------------- OTHER ---------------------------
@@ -63,17 +63,17 @@ export class PlanetaService {
 
   public getPlanetasByEstrella(idEstrella: number) {
     const url = environment.baseURL + '/planeta/estrella/' + idEstrella;
-    return this.restService.get<Planeta[]>(url);
+    return this.restService.get<Planeta[]>(url, { withCredentials: true });
 
   }
   public getProductosXPlaneta(planetaId: number) {
     const url = environment.baseURL + '/planeta/productos/' + planetaId;
-    return this.restService.get<Producto[]>(url);
+    return this.restService.get<Producto[]>(url, { withCredentials: true });
   }
 
   public getPlanetaXProducto(planetaId: number, productoId: number) {
     const url = environment.baseURL + '/planeta/' + planetaId + '/producto/' + productoId;
-    return this.restService.get<PlanetaXProducto>(url);
+    return this.restService.get<PlanetaXProducto>(url, { withCredentials: true });
   }
 
 }
