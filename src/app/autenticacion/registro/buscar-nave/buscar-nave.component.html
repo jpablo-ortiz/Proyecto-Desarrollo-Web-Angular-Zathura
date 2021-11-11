@@ -1,1 +1,30 @@
-<!-- TODO -->
+
+<body>
+    <div class="holdingcontainer full-height">
+        <div class="container">
+
+            <h1 class="h1-top">Escoja su nave tripulante</h1>
+            <form class="row g-3 needs-validation" novalidate>
+                <div class="card internalcontainerL" style="margin-top: 15px;">
+                    <div class="card-body">
+                        <div class=""></div>
+                        <div ngbDropdown>
+                            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
+                                {{naveActual.nombre}}
+                            </button>
+                            <div class="boxe" ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                <button ngbDropdownItem
+                                        *ngFor="let nave of naves;"
+                                        (click)="seleccionarNave(nave)">
+                                {{nave.nombre}}
+                            </button>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" type="submit" id="login" (click)="seleccionarNave()"> Registrar Nave</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</body>

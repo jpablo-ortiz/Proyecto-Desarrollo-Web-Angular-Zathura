@@ -6,7 +6,7 @@
 
             <div class="card internalcontainerL" style="margin-top: 15px;">
                 <div class="card-body">
-                    <form (ngSubmit)="Registrarse()" class="row g-3 needs-validation" novalidate>
+                    <form class="row g-3 needs-validation" novalidate>
                         <h5 class="card-title"> Nombre Usuario </h5>
 
                         <input type="text" class="form-control" id="validationCustom01" [(ngModel)]="usuario"
@@ -35,7 +35,9 @@
                                 [(ngModel)]="rolComerciante" (click)="checkboxChange('comerciante')">
                             <label class="form-check-label" for="rolComerciante">Comerciante</label>
                         </div>
-                        <button class="btn btn-primary" type="submit" id="login">Registrarse</button>
+
+                        <button class="btn btn-primary" type="submit" id="login" (click)="crearNave()">Crear Nave</button>
+                        <button class="btn btn-primary" type="submit" id="login" (click)="seleccionarNave()">Seleccionar Nave</button>
 
                     </form>
                     <div class="alert alert-danger mt-5" role="alert" *ngIf="mensaje">

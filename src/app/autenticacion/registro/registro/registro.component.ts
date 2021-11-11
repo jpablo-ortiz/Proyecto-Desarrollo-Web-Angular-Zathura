@@ -41,7 +41,7 @@ export class RegistroComponent implements OnInit {
     }
   }
 
-  Registrarse() {
+  crearNave() {
     var tripulante: Tripulante = new Tripulante();
     tripulante.username = this.usuario;
     tripulante.password = this.password;
@@ -55,6 +55,27 @@ export class RegistroComponent implements OnInit {
       data => {
         var idTripulante = data.id;
         this.router.navigate(['/navecreacion', idTripulante]).then(() => {
+          window.location.reload();
+        });
+      },
+      error => this.mensaje= "Error usuario ya existe",
+    );
+  }
+
+  seleccionarNave() {
+    var tripulante: Tripulante = new Tripulante();
+    tripulante.username = this.usuario;
+    tripulante.password = this.password;
+    tripulante.capitan = this.rolCapitan;
+    tripulante.navegante = this.rolNavegante;
+    tripulante.comerciante = this.rolComerciante;
+    tripulante.id = null;
+    tripulante.nave = null;
+
+    this.tripulanteService.createTripulante(tripulante).subscribe(
+      data => {
+        var idTripulante = data.id;
+        this.router.navigate(['/buscarnave', idTripulante]).then(() => {
           window.location.reload();
         });
       },

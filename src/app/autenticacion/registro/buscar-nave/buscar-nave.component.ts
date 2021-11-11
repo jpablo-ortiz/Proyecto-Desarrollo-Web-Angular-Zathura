@@ -15,6 +15,8 @@ export class BuscarNaveComponent implements OnInit {
 
   public idTripulante: number;
 
+  public naveActual = new Nave(undefined, "Seleccione la Nave");
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
