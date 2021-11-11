@@ -19,8 +19,7 @@ export class MenuComponent implements OnInit {
   constructor(private tripulanteService: TripulanteService) { }
 
   public ngOnInit(): void {
-    this.id_tripulante_actual = 531;
-    this.tripulanteService.setIdTripulanteLogeado(this.id_tripulante_actual);
+    this.id_tripulante_actual = this.tripulanteService.getIdTripulanteLogeado();
     this.getTripulanteActual();
   }
 
@@ -31,7 +30,7 @@ export class MenuComponent implements OnInit {
         this.actual = tripulante;
         this.nave = tripulante.nave?.nombre;
         if (tripulante.capitan == true){
-            this.rolTrip = "capitan"
+            this.rolTrip = "Capitan"
         }
         else if (tripulante.navegante == true) {
           this.rolTrip = "Navegante"
@@ -42,7 +41,5 @@ export class MenuComponent implements OnInit {
       }
     );
   }
-
-
 
 }

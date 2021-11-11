@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ModeloNave } from 'src/app/models/modelo-nave/modelo-nave';
+import { environment } from 'src/environments/environment';
 import { RestService } from '../../rest.service';
 
 @Injectable({
@@ -16,7 +17,7 @@ export class ModeloNaveService {
 	// ------------------------------------------------------------
 
   public createModeloNave(modeloNave: ModeloNave) {
-    const url = 'modelo-nave';
+    const url = environment.baseURL + '/modelo-nave';
     return this.restService.post(url, modeloNave);
   }
 
@@ -25,13 +26,13 @@ export class ModeloNaveService {
   // ------------------------------------------------------------
 
   public getModeloNave(id: number) {
-    const url = 'modelo-nave/' + id;
-    return this.restService.get(url);
+    const url = environment.baseURL + '/modelo-nave/' + id;
+    return this.restService.get(url, { withCredentials: true });
   }
 
   public getModeloNaves() {
-    const url = 'modelo-nave';
-    return this.restService.get(url);
+    const url = environment.baseURL + '/modelo-nave';
+    return this.restService.get<ModeloNave[]>(url, { withCredentials: true });
   }
 
   // ------------------------------------------------------------
@@ -39,7 +40,7 @@ export class ModeloNaveService {
   // ------------------------------------------------------------
 
   public updateModeloNave(modeloNave: ModeloNave) {
-    const url = 'modelo-nave';
+    const url = environment.baseURL + '/modelo-nave';
     return this.restService.post(url, modeloNave);
   }
 
@@ -48,7 +49,7 @@ export class ModeloNaveService {
   // ------------------------------------------------------------
 
   public deleteModeloNave(id: number) {
-    const url = 'modelo-nave/' + id;
-    return this.restService.delete(url);
+    const url = environment.baseURL + '/modelo-nave/' + id;
+    return this.restService.delete(url, { withCredentials: true });
   }
 }

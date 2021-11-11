@@ -32,12 +32,12 @@ export class NaveService {
 
   public getNave(id: number) {
     const url = environment.baseURL + '/nave/' + id;
-    return this.restService.get(url);
+    return this.restService.get(url, { withCredentials: true });
   }
 
   public getNaves() {
     const url = environment.baseURL + '/nave';
-    return this.restService.get<Nave>(url);
+    return this.restService.get<Nave[]>(url, { withCredentials: true });
   }
 
   // ------------------------------------------------------------
@@ -55,7 +55,7 @@ export class NaveService {
 
   public deleteNave(id: number) {
     const url = environment.baseURL + '/nave/' + id;
-    return this.restService.delete(url);
+    return this.restService.delete(url, { withCredentials: true });
   }
 
   // ------------------------------------------------------------
@@ -64,13 +64,13 @@ export class NaveService {
 
   public updatePlanetaDeLaNave(idNave: number, idPlaneta: number) {
     const url = environment.baseURL + '/nave/' + idNave + '/planeta/' + idPlaneta;
-    return this.restService.get<Nave>(url);
+    return this.restService.get<Nave>(url, { withCredentials: true });
   }
 
 
   public getNaveXProducto(naveId: number, productoId: number) {
     const url = environment.baseURL + '/nave/' + naveId + '/producto/' + productoId;
-    return this.restService.get<NaveXProducto>(url);
+    return this.restService.get<NaveXProducto>(url, { withCredentials: true });
   }
 
   public realizarCompra(idPlaneta: number, idProducto: number, idNave: number, cantidad: number) {
@@ -91,6 +91,16 @@ export class NaveService {
       idNave: idNave,
       cantidad: cantidad
     });
-}
+  }
+
+  public ingresarTripulanteANave(idTripulante: number, idNave: number) {
+    const url = environment.baseURL + '/nave/tripulante/' + idTripulante + '/nave/' + idNave;
+    return this.restService.get(url, { withCredentials: true });
+  }
+
+
+
+
+
 
 }

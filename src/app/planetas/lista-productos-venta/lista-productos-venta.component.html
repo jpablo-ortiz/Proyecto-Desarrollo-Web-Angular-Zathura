@@ -2,30 +2,31 @@
 <h1 style="text-align: center; color:aliceblue;">Productos Venta</h1>
 
 <body>
-  <div class="container">
+    <div class="container">
 
-    <div *ngFor="let pxp of productosPermitidos" class="wrapper">
-      <div class="card " style="margin-top: 15px;">
-        <div class="card-body">
-          <h5 class="card-title"> Nombre {{pxp.producto!.nombre!}}</h5>
-          <p class="card-text"> ID :{{pxp.producto!.id}}</p>
-          <a [routerLink]="['/vender', planetaId, pxp.producto!.id]"
-            class="btn btn-primary">Vender</a>
+        <div *ngFor="let pxp of productosPermitidos" class="wrapper">
+            <div class="card " style="margin-top: 15px;">
+                <div class="card-body">
+                    <h5 class="card-title"> Nombre {{pxp.producto!.nombre!}}</h5>
+                    <p class="card-text"> ID :{{pxp.producto!.id}}</p>
+                    <a *ngIf="rolComerciante" [routerLink]="['/vender', planetaId, pxp.producto!.id]" class="btn btn-primary">Vender</a>
+                    <a *ngIf="!rolComerciante" class="btn btn-secondary">Los Navegantes no pueden comerciar</a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-    <div *ngFor="let pxp of productosNoPermitidos" class="wrapper">
-      <div class="card " style="margin-top: 15px;">
-        <div class="card-body">
-          <h5 class="card-title"> Nombre {{pxp.producto!.nombre}}</h5>
-          <p class="card-text"> ID :{{pxp.producto!.id}}</p>
-          <a class="btn btn-secondary">No posee este producto la nave actual</a>
+        <div *ngFor="let pxp of productosNoPermitidos" class="wrapper">
+            <div class="card " style="margin-top: 15px;">
+                <div class="card-body">
+                    <h5 class="card-title"> Nombre {{pxp.producto!.nombre}}</h5>
+                    <p class="card-text"> ID :{{pxp.producto!.id}}</p>
+                    <a *ngIf="rolComerciante" class="btn btn-secondary">No posee este producto la nave actual</a>
+                    <a *ngIf="!rolComerciante" class="btn btn-secondary">Los Navegantes no pueden comerciar</a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-  </div>
+    </div>
 </body>
 
 </html>
