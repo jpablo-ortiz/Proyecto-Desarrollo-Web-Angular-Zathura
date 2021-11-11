@@ -91,6 +91,16 @@ export class NaveService {
       idNave: idNave,
       cantidad: cantidad
     });
-}
+  }
+
+  public ingresarTripulanteANave(idTripulante: number, idNave: number) {
+    const url = environment.baseURL + '/nave/tripulante/' + idTripulante + '/nave/' + idNave;
+    return this.restService.get(url);
+  }
+
+
+
+
+
 
 }

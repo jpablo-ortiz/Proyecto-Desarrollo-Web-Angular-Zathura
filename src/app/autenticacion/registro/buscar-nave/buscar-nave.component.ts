@@ -14,7 +14,6 @@ export class BuscarNaveComponent implements OnInit {
   public naves: Nave[] = [];
 
   public idTripulante: number;
-
   public naveActual = new Nave(undefined, "Seleccione la Nave");
 
   constructor(
@@ -33,17 +32,21 @@ export class BuscarNaveComponent implements OnInit {
   }
 
   public seleccionarNave(nave: Nave) {
-    var id = this.idTripulante;
-    this.tipulanteService.getTripulante(id).subscribe(
+    this.naveActual = nave;
+  }
+
+  public enviarSeleccionNave() {
+    this.tipulanteService.getTripulante(this.idTripulante).subscribe(
       tripulante => {
-        nave.tripulantes = [tripulante];
-        this.naveService.updateNave(nave).subscribe(
-          nave => {
+        this.naveActual.tripulantes = [tripulante];
+        this.naveService.ingresarTripulanteANave(this.idTripulante, this.naveActual.id!).subscribe(
+          res => {
             this.router.navigate(['/login']).then(() => {
               window.location.reload();
             });
-          }
-        )
+          },
+          error => console.log(error)
+        );
       }
     );
   }
