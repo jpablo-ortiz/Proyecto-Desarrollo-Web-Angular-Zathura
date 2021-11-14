@@ -18,7 +18,7 @@ export class EstrellaService {
 
   public createEstrella(estrella: Estrella) {
     const url = environment.baseURL + '/estrella';
-    return this.restService.post(url, estrella);
+    return this.restService.post(url, estrella, { withCredentials: true });
   }
 
   // ------------------------------------------------------------
@@ -41,7 +41,7 @@ export class EstrellaService {
 
   public updateEstrella(estrella: Estrella) {
     const url = environment.baseURL + '/estrella/' + estrella.id;
-    return this.restService.post(url, estrella);
+    return this.restService.post(url, estrella, { withCredentials: true });
   }
 
   // ------------------------------------------------------------

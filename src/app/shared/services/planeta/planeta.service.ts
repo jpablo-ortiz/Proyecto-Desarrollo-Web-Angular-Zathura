@@ -10,8 +10,6 @@ import { PlanetaXProducto } from './../../../models/planeta-x-producto/planeta-x
 })
 export class PlanetaService {
 
-
-
   constructor(private restService: RestService) { }
 
   // CRUD - CREATE - READ - UPDATE - DELETE
@@ -22,7 +20,7 @@ export class PlanetaService {
 
   public createPlaneta(planeta: Planeta) {
     const url = environment.baseURL + '/planeta';
-    return this.restService.post(url, planeta);
+    return this.restService.post(url, planeta, { withCredentials: true });
   }
 
   // ------------------------------------------------------------
@@ -45,7 +43,7 @@ export class PlanetaService {
 
   public updatePlaneta(planeta: Planeta) {
     const url = environment.baseURL + '/planeta/' + planeta.id;
-    return this.restService.post(url, planeta);
+    return this.restService.post(url, planeta, { withCredentials: true });
   }
 
   // ------------------------------------------------------------

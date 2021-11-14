@@ -10,9 +10,6 @@ import { NaveXProducto } from './../../../models/nave-x-producto/nave-xproducto'
 })
 export class NaveService {
 
-
-
-
   constructor(private restService: RestService) { }
 
   // CRUD - CREATE - READ - UPDATE - DELETE
@@ -23,7 +20,7 @@ export class NaveService {
 
   public createNave(nave: Nave) {
     const url = environment.baseURL + '/nave';
-    return this.restService.post(url, nave);
+    return this.restService.post(url, nave, { withCredentials: true });
   }
 
   // ------------------------------------------------------------
@@ -46,7 +43,7 @@ export class NaveService {
 
   public updateNave(nave: Nave) {
     const url = environment.baseURL + '/nave/' + nave.id;
-    return this.restService.post<Nave>(url, nave);
+    return this.restService.post<Nave>(url, nave, { withCredentials: true });
   }
 
   // ------------------------------------------------------------
@@ -80,7 +77,7 @@ export class NaveService {
       idProducto: idProducto,
       idNave: idNave,
       cantidad: cantidad
-    });
+    }, { withCredentials: true});
   }
 
   public realizarVenta(idPlaneta: number, idProducto: number, idNave: number, cantidad: number) {
@@ -90,17 +87,12 @@ export class NaveService {
       idProducto: idProducto,
       idNave: idNave,
       cantidad: cantidad
-    });
+    },{ withCredentials: true });
   }
 
   public ingresarTripulanteANave(idTripulante: number, idNave: number) {
     const url = environment.baseURL + '/nave/tripulante/' + idTripulante + '/nave/' + idNave;
     return this.restService.get(url, { withCredentials: true });
   }
-
-
-
-
-
 
 }

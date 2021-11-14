@@ -18,7 +18,7 @@ export class RutaService {
 
   public createRuta(cliente: Ruta) {
     const url = environment.baseURL + '/ruta';
-    return this.restService.post(url, cliente);
+    return this.restService.post(url, cliente, { withCredentials: true });
   }
 
   // ------------------------------------------------------------
@@ -41,7 +41,7 @@ export class RutaService {
 
   public updateRuta(ruta: Ruta) {
     const url = environment.baseURL + '/ruta/' + ruta.id;
-    return this.restService.post(url, ruta);
+    return this.restService.post(url, ruta, { withCredentials: true });
   }
 
   // ------------------------------------------------------------

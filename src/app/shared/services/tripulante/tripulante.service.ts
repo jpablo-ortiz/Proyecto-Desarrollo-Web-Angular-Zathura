@@ -24,7 +24,7 @@ export class TripulanteService {
 
   public createTripulante(tripulante: Tripulante) {
     const url = environment.baseURL + '/tripulante';
-    return this.restService.post<Tripulante>(url, tripulante);
+    return this.restService.post<Tripulante>(url, tripulante, {withCredentials: true });
   }
 
   // ------------------------------------------------------------
@@ -47,7 +47,7 @@ export class TripulanteService {
 
   public updateTripulante(tripulante: Tripulante) {
     const url = environment.baseURL + '/tripulante/' + tripulante.id;
-    return this.restService.post<Tripulante>(url, tripulante);
+    return this.restService.post<Tripulante>(url, tripulante, {withCredentials: true});
   }
 
   // ------------------------------------------------------------
@@ -144,15 +144,6 @@ export class TripulanteService {
       return false;
     }
   }
-
-
-
-
-
-
-
-
-
 
   public getProductosVenta(tripulanteId: number, planetaId: number) {
     const url = environment.baseURL + '/tripulante/' + tripulanteId + '/' + planetaId + '/productos';

@@ -18,7 +18,7 @@ export class ModeloNaveService {
 
   public createModeloNave(modeloNave: ModeloNave) {
     const url = environment.baseURL + '/modelo-nave';
-    return this.restService.post(url, modeloNave);
+    return this.restService.post(url, modeloNave, { withCredentials: true });
   }
 
   // ------------------------------------------------------------
@@ -41,7 +41,7 @@ export class ModeloNaveService {
 
   public updateModeloNave(modeloNave: ModeloNave) {
     const url = environment.baseURL + '/modelo-nave';
-    return this.restService.post(url, modeloNave);
+    return this.restService.post(url, modeloNave, { withCredentials: true });
   }
 
   // ------------------------------------------------------------
