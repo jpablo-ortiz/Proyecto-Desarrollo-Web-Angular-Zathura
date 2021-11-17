@@ -16,9 +16,16 @@
                         </div>
                     </form>
 
-                    <div class="alert alert-danger mt-5" role="alert" *ngIf="mensaje">
-                        <strong>Error!</strong> {{mensaje}}
+                    <div *ngIf="mensaje">
+                        <div *ngIf="mensaje != 'Inicio de sesion correcto'" class="alert alert-danger mt-5"
+                            role="alert">
+                            <strong>Error!</strong> {{mensaje}}
+                        </div>
+                        <div *ngIf="mensaje === 'Inicio de sesion correcto'" class="alert alert-success mt-5">
+                            <a>Ir a la pagina principal</a>
+                        </div>
                     </div>
+
                 </div>
             </div>
 
