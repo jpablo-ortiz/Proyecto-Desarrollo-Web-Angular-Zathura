@@ -9,7 +9,7 @@
                 <div class="card-body">
                     <h5 class="card-title"> Nombre {{pxp.producto!.nombre!}}</h5>
                     <p class="card-text"> ID :{{pxp.producto!.id}}</p>
-                    <a *ngIf="rolComerciante" [routerLink]="['/vender', planetaId, pxp.producto!.id]" class="btn btn-primary">Vender</a>
+                    <a id="btnVenta{{pxp.producto!.id!}}" *ngIf="rolComerciante" [routerLink]="['/vender', planetaId, pxp.producto!.id]" class="btn btn-primary">Vender</a>
                     <a *ngIf="!rolComerciante" class="btn btn-secondary">Los Navegantes no pueden comerciar</a>
                 </div>
             </div>

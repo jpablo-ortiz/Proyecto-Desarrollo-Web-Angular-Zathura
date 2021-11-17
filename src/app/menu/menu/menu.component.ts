@@ -26,7 +26,7 @@ export class MenuComponent implements OnInit {
   // Realizar consulta para obtener el tripulante actual
   public getTripulanteActual() {
     this.tripulanteService.getTripulante(this.id_tripulante_actual).subscribe(
-      tripulante => {
+      (tripulante: Tripulante) => {
         this.actual = tripulante;
         this.nave = tripulante.nave?.nombre;
         if (tripulante.capitan == true){

@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
         result => {
           this.mensaje = 'Inicio de sesion correcto';
           sessionStorage.setItem('Auth', 'true');
+          // hacer un sleep del código para que se vea el mensaje
           this.getTripulantePorLogin();
         },
         error => this.mensaje = 'Nombre de usario o Contraseña Incorrectos, por favor intente nuevamente'
@@ -68,5 +69,5 @@ export class LoginComponent implements OnInit {
       error => console.log('NO SE ENCONTRÓ TRIPULANTE')
     );
   }
-
 }
+
