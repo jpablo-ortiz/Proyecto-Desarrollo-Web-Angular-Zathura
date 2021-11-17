@@ -1,0 +1,73 @@
+.boxe {
+  border: 1px solid #333333;
+  height: 300px;
+  overflow: scroll;
+}
+
+body {
+  background-image: url(https://media.giphy.com/media/MAzunB1Ru6zAYlYgPD/giphy.gif);
+}
+
+html {
+  background-image: url("https://acegif.com/wp-content/gif/outerspace-6.gif");
+  /*background-image: url("https://acegif.com/wp-content/gif/outerspace-89.gif");*/
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-size: 100% 100%;
+}
+
+.holdingcontainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  max-width: 100%;
+  max-height: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.internalcontainerL {
+  padding: 30px;
+  font-size: 12px;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.h1-top {
+  margin-top: 40px;
+  font-size: 2.5em;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  text-align: center;
+}
+
+button {
+  margin-top: 20px;
+  width: 60%;
+}
+
+.form-group {
+  text-align: center;
+}
+
+.form-check {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.full-height {
+  height: 94vh;
+  margin: 0;
+}
+
+.check {
+  margin-right: 20px;
+}
