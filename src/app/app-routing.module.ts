@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './autenticacion/login/login.component';
+import { BuscarNaveComponent } from './autenticacion/registro/buscar-nave/buscar-nave.component';
+import { CreacionNaveComponent } from './autenticacion/registro/creacion-nave/creacion-nave.component';
+import { RegistroComponent } from './autenticacion/registro/registro/registro.component';
 import { PantallaDialogoComponent } from './comercio/pantalla-dialogo/pantalla-dialogo.component';
 import { TransaccionCompraComponent } from './comercio/transaccion-compra/transaccion-compra.component';
 import { TransaccionVentaComponent } from './comercio/transaccion-venta/transaccion-venta.component';
@@ -9,6 +13,10 @@ import { NavegacionPlanetasComponent } from './planetas/navegacion-planetas/nave
 import { VistaPlanetaComponent } from './planetas/vista-planeta/vista-planeta.component';
 
 const routes: Routes = [
+  { path: 'buscarnave/:idTripulante', component: BuscarNaveComponent },
+  { path: 'navecreacion/:idTripulante', component: CreacionNaveComponent },
+  { path: 'registro', component: RegistroComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'vender/:idPlaneta/:idProducto', component: TransaccionVentaComponent },
   { path: 'comprar/:idPlaneta/:idProducto', component: TransaccionCompraComponent },
   { path: 'planeta/:id', component: VistaPlanetaComponent },
@@ -16,7 +24,7 @@ const routes: Routes = [
   { path: 'estrella', component: NavegacionEstrellasComponent },
   { path: 'mensaje/:mensaje', component: PantallaDialogoComponent },
   { path: 'menu', component: MenuComponent },
-  { path: '', pathMatch: 'full', redirectTo: 'menu' }
+  { path: '', pathMatch: 'full', redirectTo: 'login' }
 ];
 
 @NgModule({

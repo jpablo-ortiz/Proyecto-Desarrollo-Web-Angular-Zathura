@@ -1,8 +1,12 @@
 # TODO's
 
-- [ ] Implementar authenticación
+- [x] Implementar authenticación
+- [x] Pantalla login
+- [x] Pantalla registrar
+- [x] Pantalla crear nave (modelo nave)
+- [ ] Pantalla elegir nave
+- [x] Pantalla elegir rol
 - [ ] Implementar roles y permisos de acuerdo al rol
-- [ ] Implementar todas las pantallas de llenar datos del usuario y elegir roles y naves (si existe) o crear una con un modelo nave.
 - [ ] Pruebas Unitarias (Java Spring)
 - [ ] Pruebas de integración (Creo que Angular)
 

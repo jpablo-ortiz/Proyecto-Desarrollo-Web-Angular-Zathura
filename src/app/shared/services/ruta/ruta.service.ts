@@ -18,7 +18,7 @@ export class RutaService {
 
   public createRuta(cliente: Ruta) {
     const url = environment.baseURL + '/ruta';
-    return this.restService.post(url, cliente);
+    return this.restService.post(url, cliente, { withCredentials: true });
   }
 
   // ------------------------------------------------------------
@@ -27,12 +27,12 @@ export class RutaService {
 
   public getRuta(id: number) {
     const url = environment.baseURL + '/ruta/' + id;
-    return this.restService.get(url);
+    return this.restService.get(url, { withCredentials: true });
   }
 
   public getRutas() {
     const url = environment.baseURL + '/ruta';
-    return this.restService.get<Ruta>(url);
+    return this.restService.get<Ruta>(url, { withCredentials: true });
   }
 
   // ------------------------------------------------------------
@@ -41,7 +41,7 @@ export class RutaService {
 
   public updateRuta(ruta: Ruta) {
     const url = environment.baseURL + '/ruta/' + ruta.id;
-    return this.restService.post(url, ruta);
+    return this.restService.post(url, ruta, { withCredentials: true });
   }
 
   // ------------------------------------------------------------
@@ -50,7 +50,7 @@ export class RutaService {
 
   public deleteRuta(id: number) {
     const url = environment.baseURL + '/ruta/' + id;
-    return this.restService.delete(url);
+    return this.restService.delete(url, { withCredentials: true });
   }
 
 

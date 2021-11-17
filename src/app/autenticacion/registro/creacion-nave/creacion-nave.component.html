@@ -1,0 +1,34 @@
+<body>
+    <div class="holdingcontainer full-height">
+        <div class="container">
+
+            <h1 class="h1-top">Creación Nave</h1>
+            <form class="row g-3 needs-validation" novalidate>
+                <div class="card internalcontainerL" style="margin-top: 15px;">
+                    <div class="card-body">
+                        <h5 class="card-title"> Nombre Nave </h5>
+                        <input type="text" class="form-control" id="validationCustom01" [(ngModel)]="nombre"
+                            name="nombre" placeholder="nombre" required>
+
+                        <div class=""></div>
+                        <div ngbDropdown>
+                            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
+                                {{modeloNaveActual.nombreModelo}}
+                            </button>
+                            <div class="boxe" ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                <button ngbDropdownItem
+                                        *ngFor="let modeloNave of modelosNaves;"
+                                        (click)="seleccionarModeloNave(modeloNave)">
+                                {{modeloNave.nombreModelo}}
+                            </button>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary" type="submit" id="login" (click)="crearNave()">Crear Nave</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</body>

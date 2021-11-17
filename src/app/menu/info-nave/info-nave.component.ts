@@ -7,11 +7,11 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class InfoNaveComponent implements OnInit {
 
-   public title: string = "Datos nave";
+  public title: string = "Datos nave";
   @Input() public creditosNave?: number = 0;
   @Input() public tiempoNave?: number = 0;
 
-  constructor() {  }
+  constructor() { }
 
   ngOnInit(): void {
   }

@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class InfoTripulanteComponent implements OnInit {
 
-  @Input() jug: string = "Nombre del Jugador";
+  @Input() jug: string | null = null;
   @Input() rolJug : string = "rol";
 
   constructor() { }

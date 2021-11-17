@@ -18,7 +18,7 @@ export class ProductoService {
 
   public createProducto(producto: Producto) {
     const url = environment.baseURL + '/producto';
-    return this.restService.post(url, producto);
+    return this.restService.post(url, producto, { withCredentials: true });
   }
 
   // ------------------------------------------------------------
@@ -27,12 +27,12 @@ export class ProductoService {
 
   public getProducto(id: number) {
     const url = environment.baseURL + '/producto/' + id;
-    return this.restService.get(url);
+    return this.restService.get(url, { withCredentials: true });
   }
 
   public getProductos() {
     const url = environment.baseURL + '/producto';
-    return this.restService.get<Producto>(url);
+    return this.restService.get<Producto>(url, { withCredentials: true });
   }
 
   // ------------------------------------------------------------
@@ -41,7 +41,7 @@ export class ProductoService {
 
   public updateProducto(producto: Producto) {
     const url = environment.baseURL + '/producto/' + producto.id;
-    return this.restService.post(url, producto);
+    return this.restService.post(url, producto, { withCredentials: true });
   }
 
   // ------------------------------------------------------------
@@ -50,7 +50,7 @@ export class ProductoService {
 
   public deleteProducto(id: number) {
     const url = environment.baseURL + '/producto/' + id;
-    return this.restService.delete(url);
+    return this.restService.delete(url, { withCredentials: true });
   }
 
 
